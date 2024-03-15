@@ -18,8 +18,8 @@
         <div class="meio">
            
                 <ul class="header-text">
-                    <li>Lanches</li>
-                    <li>Receitas</li>
+                    <li><a href="lanches.php">Lanches</a></li>
+                    <li><a href="receitas.php">Receitas</a></li>
                 </ul>
            
         </div>
@@ -29,5 +29,7 @@
             </div>
         </div>
 <!--Header --->
+<
+
 </body>
 </html>

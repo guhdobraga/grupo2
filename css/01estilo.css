@@ -29,7 +29,7 @@ body {
     margin-right: 5vh;
     font-size: 30px;
     color: #eb6427;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .dir {
@@ -49,5 +49,10 @@ body {
     width: 100px;
     height: 100px;
     margin-right:5vh ;
+}
+
+a{ 
+    text-decoration: none;
+    color: #eb6427;
 }
 /*header*/
