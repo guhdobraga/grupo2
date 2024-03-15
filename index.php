@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunch Fit</title>
-    <link rel="stylesheet" href="css/01estilo.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
@@ -71,9 +72,27 @@
         </div>
     </div>
 <!--Imagem 2 --->
+</section>
 
+<br><br><br>
 
-
+<!--Footer --->
+<section class="main-footer">
+        <div class="esq">
+            <div class="footer-logo">
+                <img src="img/logo.png">
+            </div>
+        </div>
+        <div class="meio">
+           
+                <h1 class="footer-text">
+                All rights reserved by Lunch Fit©
+                </h1>
+           
+        </div>
+       
+        </div>
+</section>
 
 
 </body>
