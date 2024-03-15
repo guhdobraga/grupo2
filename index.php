@@ -28,8 +28,52 @@
                 <img src="img/user-ico.png">
             </div>
         </div>
+</section>
 <!--Header --->
-<
+
+<section class="main-content">
+    
+<!--Banner --->
+    <div class="banner">
+        <div class="banner-content">
+<!-- Colocar a imagem aqui:--><h1>Banner</h1> 
+        </div>
+    </div>
+
+</section>
+<!--Banner --->
+
+<br><br>
+
+<section class="second-content flex">
+    
+<!--Texto --->
+    <div class="text-box">
+        <div class="text-content">
+            <h1>Texto</h1>
+        </div>
+    </div>
+<!--Texto --->
+
+<!--Imagem 1 --->
+    <div class="img-box">
+        <div class="img-content">
+            <h1>IMG</h1>
+        </div>
+    </div>
+<!--Imagem 1 --->
+
+<!--Imagem 2 --->
+    <div class="img-box">
+        <div class="img-content">
+            <h1>IMG</h1>
+        </div>
+    </div>
+<!--Imagem 2 --->
+
+
+
+
 
 </body>
 </html>
