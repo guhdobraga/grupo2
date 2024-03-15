@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
@@ -78,7 +79,7 @@
 
 <!--Footer --->
 <section class="main-footer">
-        <div class="esq">
+        <div class="esq esq-2">
             <div class="footer-logo">
                 <img src="img/logo.png">
             </div>
