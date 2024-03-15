@@ -1,0 +1,53 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+/*header*/
+body {
+    background-color: #f8f8d6;
+}
+
+
+.main-header {
+    display: flex;
+    align-items: center;
+}
+
+.esq {
+    width: 45vw;
+}
+
+
+.meio {
+    width: 25vw;
+}
+
+.header-text li {
+    display: inline-flex;
+    margin-right: 5vh;
+    font-size: 30px;
+    color: #eb6427;
+    font-weight: bold;
+}
+
+.dir {
+    display: flex;
+    justify-content: right;
+    width: 35vw;
+}
+
+
+.header-logo img {
+    width: 150px;
+    height: 125px;
+    margin: 15px;
+}
+
+.user-icon img {
+    width: 100px;
+    height: 100px;
+    margin-right:5vh ;
+}
+/*header*/
