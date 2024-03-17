@@ -1,5 +1,5 @@
 <?php
-class EndModel
+class EnderecoModel
 {
     private $pdo;
 

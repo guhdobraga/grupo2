@@ -10,4 +10,3 @@ try {
 } catch (PDOException $e) {
     die("Erro ao conectar: " . $e->getMessage());
 }
-?>

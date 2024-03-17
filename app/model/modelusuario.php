@@ -1,5 +1,5 @@
 <?php
-class UserModel
+class userModel
 {
     private $pdo;
 
