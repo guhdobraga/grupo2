@@ -2,6 +2,7 @@
     padding:0;
     margin:0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /*header*/
@@ -57,22 +58,4 @@ a{
 }
 /*header*/
 
-.texto{
-    display: inline-flex;
-    font-size: 30px;
-    color: #eb6427;
-    font-weight: bolder;
-    margin: 35px;
-}
 
-.imagem{
-    margin-left: 150px;
-}
-.escrita{
-    width: 1000px;
-    height: 202px;
-    background-color: #D2D2D2;
-    margin: -205px;
-    margin-left: 250px;
-    text-align: center;
-}
