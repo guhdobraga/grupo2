@@ -2,17 +2,17 @@
     padding:0;
     margin:0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-/*header*/
-body {
-    background-color: #f8f8d6;
-}
+/*footer*/
 
 
-.main-header {
+
+.main-footer {
     display: flex;
     align-items: center;
+    background-color: #e2e2b7;
 }
 
 .esq {
@@ -24,10 +24,10 @@ body {
     width: 25vw;
 }
 
-.header-text li {
+.footer-text {
     display: inline-flex;
     margin-right: 5vh;
-    font-size: 30px;
+    font-size: 15px;
     color: #eb6427;
     font-weight: bolder;
 }
@@ -39,9 +39,9 @@ body {
 }
 
 
-.header-logo img {
-    width: 150px;
-    height: 125px;
+.footer-logo img {
+    width: 50px;
+    height: 45px;
     margin: 15px;
 }
 
@@ -55,4 +55,6 @@ a{
     text-decoration: none;
     color: #eb6427;
 }
-/*header*/
+/*footer*/
+
+
