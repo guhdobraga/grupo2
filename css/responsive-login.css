@@ -6,4 +6,8 @@
     .btn {
         font-size: 60%;
     }
+
+    .social-buttons {
+        justify-content: space-between;
+    }
 }

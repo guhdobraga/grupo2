@@ -28,7 +28,7 @@
         </div>
         <div class="dir">
             <div class="user-icon">
-                <img src="img/user-ico.png">
+            <a href="login.php"><img src="img/user-ico.png"></a>
             </div>
         </div>
 </section>

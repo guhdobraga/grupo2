@@ -48,9 +48,12 @@ h2 {
    
 }
 
-.placeholder {
-    color: #eb6427;
+::placeholder {
+    font-weight: bolder;
+    color: #5d7e62;
 }
+
+
 
 .btn {
     width: 50%;
@@ -60,7 +63,7 @@ h2 {
     background-color: #cacccc;
     color: #eb6427;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 12px;
 }
 
@@ -75,25 +78,61 @@ h2 {
 .social-buttons {
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    width: 15vw;
+    height: 9vh;
 }
 
 .btn-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex: 1;
     margin-right: 5px;
     background-color: #3b5998; /* Facebook blue */
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 100px;
+    padding: 20px;
     cursor: pointer;
 }
 
-.btn-social:hover {
-    background-color: #2d4373; /* Darker Facebook blue */
-}
+
 
 a {
     color:#eb6427;
     text-decoration: none;
 }
+
+.fa {
+    background-color: #1f3056;
+}
+
+.fa:hover {
+    background-color: #2f487f;
+}
+
+.tw {
+    background-color: #5683e5;
+}
+
+.tw:hover {
+    background-color: #4362a5;
+}
+
+.go {
+    background-color: white;
+}
+
+.go:hover {
+    background-color:#e9e9e9 ;
+}
+
+.social-icon img {
+    width:25px;
+    height: 25px;
+    
+}
+
+
+
