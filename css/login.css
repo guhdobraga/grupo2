@@ -24,6 +24,7 @@ h2 {
     border-radius: 20px;
     text-align: center;
     padding: 40px;
+    width: 15vw;
 }
 
 .login-form h2 {
@@ -60,6 +61,7 @@ h2 {
     color: #eb6427;
     cursor: pointer;
     font-weight: bold;
+    font-size: 12px;
 }
 
 .butn {
@@ -89,4 +91,9 @@ h2 {
 
 .btn-social:hover {
     background-color: #2d4373; /* Darker Facebook blue */
+}
+
+a {
+    color:#eb6427;
+    text-decoration: none;
 }
