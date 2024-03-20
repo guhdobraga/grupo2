@@ -1,0 +1,99 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #5d7e62;
+    margin: 0;
+    padding: 0;
+  
+}
+
+h2 {
+    color: #eb6427;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    background-color: #f8f8d6;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 40px;
+    width: 15vw;
+}
+
+.login-form h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    
+}
+
+.form-group {
+    margin-bottom: 40px;
+}
+
+
+
+.form-group input {
+
+    padding: 6px;
+    border: 1px ;
+    border-radius: 1px;
+    background-color: #cacccc;
+   
+}
+
+.placeholder {
+    color: #eb6427;
+}
+
+.btn {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 1px;
+    background-color: #cacccc;
+    color: #eb6427;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.butn {
+    color: #eb6427;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    background-color:#f8f8d6 ;
+}
+
+.social-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-social {
+    flex: 1;
+    margin-right: 5px;
+    background-color: #3b5998; /* Facebook blue */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btn-social:hover {
+    background-color: #2d4373; /* Darker Facebook blue */
+}
+
+a {
+    color:#eb6427;
+    text-decoration: none;
+}

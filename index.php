@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsive-index.css">
 </head>
 <body>
 
@@ -94,7 +94,7 @@
        
         </div>
 </section>
-
+<!--Footer --->
 
 </body>
 </html>

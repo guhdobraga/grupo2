@@ -1,0 +1,9 @@
+@media screen and  (max-width: 950px) {
+    .login-form {
+        width: 50vw;
+    }
+
+    .btn {
+        font-size: 60%;
+    }
+}
