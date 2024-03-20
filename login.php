@@ -21,9 +21,9 @@
             </div>
 
             <div class="social-buttons">
-    <button href="https://facebook.com" class="btn-social fa"><div class="social-icon"><img src="facebook.png"></div></button>
-    <button href="https://twitter.com" class="btn-social tw"><div class="social-icon"><img src="twitter.png"></div></button>
-    <button href="https://google.com" class="btn-social go"><div class="social-icon"><img src="google.png"></div></button>
+    <button href="https://facebook.com" class="btn-social fa"><div class="social-icon"><img src="img/facebook.png"></div></button>
+    <button href="https://twitter.com" class="btn-social tw"><div class="social-icon"><img src="img/twitter.png"></div></button>
+    <button href="https://google.com" class="btn-social go"><div class="social-icon"><img src="img/google.png"></div></button>
 </div>
  <br>
 
