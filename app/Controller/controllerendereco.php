@@ -36,4 +36,4 @@ class enderecoController
         $this->enderecomodel->deletarEnd($id_endereco);
     }
 }
-
+?>
