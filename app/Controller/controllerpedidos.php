@@ -1,39 +1,39 @@
 <?php
-require_once 'app/Model/empModel.php';
+require_once 'app/model/modelpedidos.php';
 
 class pedLancheController
 {
-    private $empmodel;
+    private $pedlanchemodel;
     public function __construct($pdo)
     {
-        $this->empmodel = new pedlancheModel($pdo);
+        $this->pedlanchemodel = new pedlancheModel($pdo);
     }
 
-    public function emplivro($id_livro, $nome_livro, $nome_user)
+    public function pedLanche($id_lanche, $nome_lanche, $preco, $nome_completo, $rua, $numero, $quantidade)
     {
-        if ($this->empmodel->emplivro($id_livro, $nome_livro, $nome_user)) {
-            header('Location: catalogo.php');
+        if ($this->pedlanchemodel->pedLanche($id_lanche, $nome_lanche, $preco, $nome_completo, $rua, $numero, $quantidade)) {
+            header('Location: lanche.php');
             exit();
         } else {
-            echo 'Não foi possível realizar o empréstimo.';
+            echo 'Não foi possível realizar o pedido.';
         }
     }
 
-    public function devolverLivro($id_livro)
+    public function cancelarPedido($id_pedido)
     {
-        if ($this->empmodel->devolverLivro($id_livro)) {
-            header('Location: catalogo.php');
+        if ($this->pedlanchemodel->cancelarPedido($id_pedido)) {
+            header('Location: lanche.php');
             exit();
         } else {
-            echo "Não foi possível realizar a devolução.";
+            echo "Lamentamos, mas não foi possível realizar o cancelamento do seu pedido :(";
         }
     }
-    public function listarLivrosEmprestados($nome_user)
+    public function listarLanchesPedidos($nome_completo)
     {
-        return $this->empmodel->listarLivrosEmprestados($nome_user);
+        return $this->pedlanchemodel->listarLanchesPedidos($nome_completo);
     }
 
     public function listarHistorico() {
-        return $this->empmodel->listarHistorico();
+        return $this->pedlanchemodel->listarHistorico();
     }
 }
