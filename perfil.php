@@ -3,36 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive-index.css">
+    <link rel="stylesheet" href="css/responsive-perfil.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/logo lunch fit.png" type="image/png">
+    <title>Lunch Fit | Perfil</title>
 </head>
 <body>
 <header>
 <!--Header --->
 <section class="main-header">
-    <div class="esq">
-        <div class="header-logo">
-            <img src="img/logo lunch fit.png">
+        <div class="esq">
+            <div class="header-logo">
+                <a href="index.php"><img src="img/logo.png"></a>
+            </div>
         </div>
-    </div>
-    <div class="meio">
-       
-            <ul class="header-text">
-                <li>Lanches</li>
-                <li>Receitas</li>
-            </ul>
-       
-    </div>
-    <div class="dir">
-        
-        <div class="user-icon">
-            <img src="img/icon_perfil_lunch_fit-removebg-preview.png">
+        <div class="meio">
+           
+                <ul class="header-text">
+                    <li><a href="lanches.php">Lanches</a></li>
+                    <li><a href="receitas.php">Receitas</a></li>
+                </ul>
+           
         </div>
-    </div>
+        <div class="dir">
+            <div class="user-icon">
+            <a href="login.php"><img src="img/user-ico.png"></a>
+            </div>
+        </div>
+</section>
 <!--Header --->
 </header>
-<section>
+<section class="center">
 <div class="container1">
     <div class="left-column">
         <h2>Troque sua foto</h2>
@@ -69,6 +74,25 @@
         </div>
     </div>
 </div>
+</section>
+<!--Footer --->
+<section class="main-footer">
+        <div class="esq esq-2">
+            <div class="footer-logo">
+                <img src="img/logo.png">
+            </div>
+        </div>
+        <div class="meio">
+           
+                <h1 class="footer-text">
+                All rights reserved by Lunch Fit©
+                </h1>
+           
+        </div>
+       
+        </div>
+</section>
+<!--Footer --->
 
 <script>
      function updateImage(event) {

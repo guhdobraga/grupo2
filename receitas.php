@@ -4,46 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunch fit</title>
-    <link rel="stylesheet" href="css/02estilo.css">
-
+    <title>Lunch Fit | Receitas</title>
+    
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/receita.css">
+    <link rel="stylesheet" href="css/responsive-index.css">
+    <link rel="stylesheet" href="css/responsive-receitas.css">
+    <link rel="shortcut icon" href="img/logo lunch fit.png" type="image/png">
 </head>
 
 <body>
     <!--Header --->
-    <section class="main-header">
+<section class="main-header">
         <div class="esq">
             <div class="header-logo">
-                <img src="img/logo.png">
+                <a href="index.php"><img src="img/logo.png"></a>
             </div>
         </div>
-
         <div class="meio">
-
-
-            <ul class="header-text">
-                <li><a href="lanches.php">Lanches</a></li>
-                <li><a href="receitas.php">Receitas</a></li>
-            </ul>
-
+           
+                <ul class="header-text">
+                    <li><a href="lanches.php">Lanches</a></li>
+                    <li><a href="receitas.php">Receitas</a></li>
+                </ul>
+           
         </div>
         <div class="dir">
             <div class="user-icon">
-                <img src="img/user-ico.png">
+            <a href="login.php"><img src="img/user-ico.png"></a>
             </div>
         </div>
-    </section>
-    <!--Header --->
+</section>
+<!--Header --->
     <br>
     <div class="texto">
         <p>Receitas</p>
     </div>
 
-    <div class="geral">
+    <section class="geral">
         <div class="first">
             <div class="imagem">
                 <img src="img/frango.jpg" alt="Image" height="201" width="305">
-                <a class="sem-cor" href="index.php"> Leia mais.....
+                
                     <div class="escrita">
 <br>                        
         <h2>Sanduíche de frango </h2> 
@@ -62,7 +65,7 @@
         <div class="first">
             <div class="imagem">
                 <img src="img/peixe.jpg" alt="Image" height="201" width="305">
-                <a class="sem-cor" href="cadastroeq.php"> Leia mais.....
+                
                     <div class="escrita">
 <br>
         <h2>Sanduíche de salmão </h2>     
@@ -82,7 +85,7 @@
         <div class="first">
             <div class="imagem">
                 <img src="img/queijo-branco.jpg" alt="Image" height="201" width="305">
-                <a class="sem-cor" href="cadastroeq.php"> Leia mais.....
+                
                     <div class="escrita"> 
 <br>
         <h2>Sanduíche de queijo branco </h2>     
@@ -96,7 +99,27 @@
             </div>
         </div>
     </div>
-    
+</section>
+<br>
+<br>
+    <!--Footer --->
+<section class="main-footer">
+        <div class="esq esq-2">
+            <div class="footer-logo">
+                <img src="img/logo.png">
+            </div>
+        </div>
+        <div class="meio">
+           
+                <h1 class="footer-text">
+                All rights reserved by Lunch Fit©
+                </h1>
+           
+        </div>
+       
+        </div>
+</section>
+<!--Footer --->
 </body>
 
 </html>

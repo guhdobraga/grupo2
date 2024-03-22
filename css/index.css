@@ -17,6 +17,11 @@
     
 }
 
+.banner-content img {
+    width: 100vw;
+    height: 39.5vh;
+}
+
 
 .text-box {
     display: flex;
@@ -28,6 +33,12 @@
 
 }
 
+.text-content h1 {
+    width: 22vw;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
 
 
 .img-box {
@@ -36,8 +47,17 @@
     align-items: center;
     height: 40vh;
     width: 20vw;
-    background-color: #5d7e62;
+    border: solid 2px #5d7e62;
+    overflow-y: hidden;
 }
+
+.img-content img {
+    width: 20vw;
+    height: 40vh;
+
+}
+
+
 
 
 

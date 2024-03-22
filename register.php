@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Lunch Fit | Registro</title>
     <link rel="stylesheet" href="login.css"  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-fFoSrn81UfBvgEaHKeFt4v8izycFy2s10a97+OO3oqWwRtxrXz5C4ACJoHux2+o5" crossorigin="anonymous">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/responsive-login.css">
+    <link rel="shortcut icon" href="img/logo lunch fit.png" type="image/png">
 </head>
 <body>
     <div class="container">

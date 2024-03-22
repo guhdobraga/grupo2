@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunch Fit</title>
+    <title>Lunch Fit | Página Inicial</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive-index.css">
+    <link rel="shortcut icon" href="img/logo lunch fit.png" type="image/png">
 </head>
 <body>
 
 <!--Header --->
-    <section class="main-header">
+<section class="main-header">
         <div class="esq">
             <div class="header-logo">
-                <img src="img/logo.png">
+                <a href="index.php"><img src="img/logo.png"></a>
             </div>
         </div>
         <div class="meio">
@@ -39,7 +40,7 @@
 <!--Banner --->
     <div class="banner">
         <div class="banner-content">
-<!-- Colocar a imagem aqui:--><h1>Banner</h1> 
+<!-- Colocar a imagem aqui:--><img src="img/banner.png">
         </div>
     </div>
 
@@ -53,7 +54,7 @@
 <!--Texto --->
     <div class="text-box">
         <div class="text-content">
-            <h1>Texto</h1>
+            <h1>A importância dos lanches saudáveis ao longo do dia. Todos sabemos que a dieta e o estilo de vida são super importantes e têm uma enorme influência na nossa saúde e felicidade.</h1>
         </div>
     </div>
 <!--Texto --->
@@ -61,7 +62,7 @@
 <!--Imagem 1 --->
     <div class="img-box">
         <div class="img-content">
-            <h1>IMG</h1>
+            <img src="img/lanche.jfif">
         </div>
     </div>
 <!--Imagem 1 --->
@@ -69,7 +70,7 @@
 <!--Imagem 2 --->
     <div class="img-box">
         <div class="img-content">
-            <h1>IMG</h1>
+            <img src="img/lanche2.jfif">
         </div>
     </div>
 <!--Imagem 2 --->

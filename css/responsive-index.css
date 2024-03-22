@@ -52,20 +52,34 @@ a{
 /*second content*/
 .text-box {
     
-    height: 35vh;
+    height: 20vh;
     width: 35vw;
     border: solid 3px #5d7e62;
 
+}
+
+.text-content h1 {
+    font-size: 10px;
 }
 
 
 
 .img-box {
    
-    height: 35vh;
+    height: 20vh;
     width: 25vw;
     background-color: #5d7e62;
 }
+
+.banner-content img {
+    width: 400px;
+}
+
+.img-content img{
+    width: 100px;
+    height: 150px;
+}
+
 /*second content*/
 
 /*footer*/
@@ -73,6 +87,7 @@ a{
     display: flex;
     align-items: center;
     background-color: #e2e2b7;
+    height: 12vh;
 }
 
 .esq-2 {
