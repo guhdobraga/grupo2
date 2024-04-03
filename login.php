@@ -2,7 +2,7 @@
 session_start();
 
 // Verifique se o usuário já está logado e redirecione-o para a página apropriada
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['id_user'])) {
     header("Location: logout.php"); // Redirecione para a página de dashboard ou outra página após o login
     exit();
 }
@@ -10,6 +10,73 @@ if (isset($_SESSION['id'])) {
 include_once('db/db.php');
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
+}
+?>
+<?php
+require_once 'db/db.php';
+require_once 'app/controller/controllerusuarios.php';
+?>
+
+<?php
+
+include_once('db/db.php');
+
+if (isset($_POST['email']) && isset($_POST['senha'])) {
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $senha = $mysqli->real_escape_string($_POST['senha']);
+
+    $sql_code = $pdo->prepare("SELECT * FROM users WHERE email = ? AND senha = ?");
+    $sql_code->execute([$email, $senha]);
+
+    $quantidade = $sql_code->rowcount();
+
+    if ($quantidade > 0) {
+        $pdo = $sql_code->fetch(PDO::FETCH_ASSOC);
+
+
+        $_SESSION['id_user'] = $pdo['id_user'];
+        $_SESSION['nome_completo'] = $pdo['nome_completo'];
+        $_SESSION['adm'] = $pdo['adm'];
+        var_dump($_SESSION['adm']);
+        $alvl = $pdo['adm'];
+
+
+        switch ($adm) {
+            case 0:
+                header("Location: index.php");
+                break;
+            case 1:
+                header("Location: adm.php");
+                break;
+            default:
+                echo "USUÁRIO SEM PERMISSÃO, FAVOR CONTATAR O ADMIN!!";
+                break;
+        }
+    } else { echo'
+  <script>
+    function verificarCondicao() {
+      // Simulação de uma condição qualquer
+      var condicao = true;
+
+      if (condicao) {
+        exibirCaixaDialogo();
+      }
+    }
+
+    // Função para exibir a caixa de diálogo
+    function exibirCaixaDialogo() {
+      var resposta = confirm("Algumas de sua credenciais estão incorretas, tente novamente!");
+      if (resposta == true) {
+     
+      } else {
+  
+      }
+    }
+    window.onload = verificarCondicao;
+  </script>
+';
+
+    }
 }
 ?>
 

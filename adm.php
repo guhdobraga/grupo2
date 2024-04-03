@@ -1,16 +1,18 @@
+
+    <?php
+    session_start();
+    var_dump($_SESSION);
+    if($_SESSION['adm'] != 1) {
+        header('Location: adm.php');
+    }
+?> 
+
+
 <?php
 
 require_once 'db/db.php';
 require_once 'app/controller/controllerlanches.php';
 require_once 'app/controller/controllerpedidos.php';
-
-session_start();
-
-if (!isset($_SESSION['id'])) {
-    header("Location:login.php");
-    exit();
-}
-
 
 ?>
 
@@ -55,12 +57,11 @@ if (!isset($_SESSION['id'])) {
 
     <main>
         <section class="main-content">
-
             
                         <div>
-                            <button><a href="adm_user.php"></a>Administação de Usuários</button>
-                            <button><a href="adm_lanche.php"></a>Administação de Lanches</button>
-                            <button><a href="adm_endereco.php"></a>Administação de Endereços</button>
+                            <button><a href="adm/adm_user.php"></a>Administação de Usuários</button>
+                            <button><a href="adm/adm_lanche.php"></a>Administação de Lanches</button>
+                            <button><a href="adm/adm_endereco.php"></a>Administação de Endereços</button>
                         </div>
                         <!--Imagem 2 --->
                         <button class="butao" id="toggleButton">Modo Noturno</button>
