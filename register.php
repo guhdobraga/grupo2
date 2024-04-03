@@ -1,5 +1,18 @@
 <?php
 require_once 'db/db.php';
+require_once 'app/Controller/controlerusuarios.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verifica se é uma submissão de formulário para adicionar um novo usuário
+    if (isset($_POST['nome_completo']) && isset($_POST['nome_usuario']) && isset($_POST['cpf']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_FILES['imagem'])) {
+        $foto_perfil = "./app/public/upload/" . $_FILES['imagem']['name'];
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $foto_perfil);
+
+        $userController = new userController($pdo);
+        $userController->criarUser($_POST['nome_completo'], $_POST['nome_usuario'], $_POST['cpf'], $_POST['email'], $_POST['senha'], 0, $foto_perfil);
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -73,6 +86,7 @@ require_once 'db/db.php';
 
                 <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
             </div>
+
             <div class="form-group">
 
                 <input type="email" id="email" name="email" placeholder="E-mail" required>
@@ -84,9 +98,8 @@ require_once 'db/db.php';
             </div>
 
             <div class="form-group">
-
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmar Senha"
-                    required>
+        
+                <input type="password" id="c-senha" name="c-senha" placeholder="Confirmar Senha" required>
             </div>
 
             <div class="form-group">
