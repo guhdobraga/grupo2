@@ -4,17 +4,15 @@ require_once 'db/db.php';
 require_once 'app/controller/controllerlanches.php';
 require_once 'app/controller/controllerpedidos.php';
 
-
-
 session_start();
 
-// Verifique se o usuário já está logado e redirecione-o para a página apropriada
-if (!isset($_SESSION['id_user'])) {
-    header("Location: login.php"); // Redirecione para a página de dashboard ou outra página após o login
+if (!isset($_SESSION['id'])) {
+    header("Location:login.php");
     exit();
 }
-?>
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -111,21 +109,21 @@ if (!isset($_SESSION['id_user'])) {
         var lua = document.getElementById("lua");
         if (document.body.classList.contains("dark-mode")) {
             document.getElementById("toggleButton").textContent = "Modo Claro";
-            sol.style.display = "none"; // Oculta o sol no modo noturno
-            lua.style.display = "block"; // Mostra a lua no modo noturno
+            sol.style.display = "none";
+            lua.style.display = "block";
         } else {
             document.getElementById("toggleButton").textContent = "Modo Noturno";
-            sol.style.display = "block"; // Mostra o sol no modo claro
-            lua.style.display = "none"; // Oculta a lua no modo claro
+            sol.style.display = "block"; 
+            lua.style.display = "none"; 
         }
     });
 
-    // Verifica o modo atual ao carregar a página
+ 
     if (document.body.classList.contains("dark-mode")) {
-        document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
-        document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
+        document.getElementById("sol").style.display = "none"; 
+        document.getElementById("lua").style.display = "block";
     } else {
-        document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
-        document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
+        document.getElementById("sol").style.display = "block";
+        document.getElementById("lua").style.display = "none"; 
     }
 </script>

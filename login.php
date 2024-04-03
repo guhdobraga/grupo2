@@ -10,7 +10,6 @@ if (isset($_SESSION['id'])) {
 include_once('db/db.php');
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
-  
 }
 ?>
 
@@ -31,7 +30,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 </head>
 <body>
     <div class="container">
-        <form class="login-form">
+        <form action="index.php" class="login-form">
             <h2>LOGIN</h2>
             <div class="form-group">
                 <input type="email" id="email" name="email" placeholder="E-mail" required>
