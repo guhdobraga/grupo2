@@ -27,6 +27,7 @@
                 <ul class="header-text">
                     <li><a href="lanches.php">Lanches</a></li>
                     <li><a href="receitas.php">Receitas</a></li>
+                    <li><a href="pedidos.php">Pedidos</a></li>
                 </ul>
            
         </div>
