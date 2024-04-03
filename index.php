@@ -76,6 +76,7 @@
         </div>
     </div>
 <!--Imagem 2 --->
+<button class="butao" id="toggleButton">Modo Noturno</button>
 </section>
 
 <br><br><br>
@@ -101,3 +102,34 @@
 
 </body>
 </html>
+
+
+<!--Script para dark mode-->
+<script>
+document.getElementById("toggleButton").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+    var sol = document.getElementById("sol");
+    var lua = document.getElementById("lua");
+    if (document.body.classList.contains("dark-mode")) {
+        document.getElementById("toggleButton").textContent = "Modo Claro";
+        sol.style.display = "none"; // Oculta o sol no modo noturno
+        lua.style.display = "block"; // Mostra a lua no modo noturno
+    } else {
+        document.getElementById("toggleButton").textContent = "Modo Noturno";
+        sol.style.display = "block"; // Mostra o sol no modo claro
+        lua.style.display = "none"; // Oculta a lua no modo claro
+    }
+});
+
+// Verifica o modo atual ao carregar a página
+if (document.body.classList.contains("dark-mode")) {
+    document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
+    document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
+} else {
+    document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
+    document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
+}
+
+
+
+</script>
