@@ -1,3 +1,42 @@
+.dark-mode {
+    background-color: #282828; 
+    color: #fefefe; 
+}
+butao {
+    position: absolute;
+    left: 91%;
+    padding: 10px 20px;
+    background-color: #4E437B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    top: 15px;
+  }
+  
+  .butao:hover {
+    background-color: #b7c978;
+    transition: 0.25s;
+  }
+  
+  #toggleButton {
+
+    border-radius: 12px;
+    position:fixed
+    /* Estilos específicos para o botão com o identificador toggleButton */
+  }
+  
+  /* Estilos para o modo noturno */
+  .modo-noturno .butao {
+    background-color: #343a40;
+  }
+  
+  .modo-noturno .butao:hover {
+    background-color:#1d2124;
+    transition: 0.25s;
+}
+
 @media screen and  (max-width: 950px) {
 
 
