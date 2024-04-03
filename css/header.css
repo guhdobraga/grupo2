@@ -58,4 +58,43 @@ a{
 }
 /*header*/
 
+.dark-mode {
+    background-color: #282828; 
+    color: #fefefe; 
+}
+.butao {
+    position: absolute;
+    left: 95.8%;
+    padding: 10px 20px;
+    background-color: #4E437B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    top: 15px;
+  }
+  
+  .butao:hover {
+    background-color: #b7c978;
+    transition: 0.25s;
+  }
+  
+  #toggleButton {
+
+    border-radius: 12px;
+    position:fixed;
+    top: 5px;
+    
+  }
+  
+  /* Estilos para o modo noturno */
+  .modo-noturno .butao {
+    background-color: #343a40;
+  }
+  
+  .modo-noturno .butao:hover {
+    background-color:#1d2124;
+    transition: 0.25s;
+}
 

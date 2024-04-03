@@ -11,22 +11,26 @@ $dompdf = new Dompdf($options);
 
 // Inclua o conteúdo HTML das páginas
 ob_start();
-include 'livro.php';
+include 'app/views/usuario/lista.php';
 $htmlPage1 = ob_get_clean();
 
 ob_start();
-include 'usuario.php';
+include 'app/views/lanches/lista.php';
 $htmlPage2 = ob_get_clean();
 
+ob_start();
+include 'app/views/endereco/lista.php';
+$htmlPage3 = ob_get_clean();
+
 // Concatene o conteúdo HTML
-$htmlContent = $htmlPage1 . $htmlPage2;
+$htmlContent = $htmlPage2 . $htmlPage3;
 
 $dompdf->loadHtml($htmlContent);
 $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
 // Nome do arquivo PDF gerado
-$filename = 'usuários e livros.pdf';
+$filename = 'Relatório-Grupo 2.pdf';
 
 // Salve o PDF no servidor
 $output = $dompdf->output();

@@ -1,11 +1,13 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista de Lanches</title>
+    <title>Lista de lanches</title>
 </head>
 <body>
     <fieldset>
-        <legend><h1>Lista de Lanches</h1></legend>
+        <legend><h1>Lista de lanches</h1></legend>
             <table border="1">
                 <thead>
                     <tr>
@@ -15,13 +17,13 @@
                         <th>ingredientes</th>
                     </tr>
                 </thead>
-                <?php foreach ($Lanches as $Lanche): ?>
+                <?php foreach ($lanches as $lanche): ?>
                     <tbody>
                         <tr>
-                            <td><?php echo $Lanche['id_lanche']; ?></td>
-                            <td><?php echo $Lanche['nome_lanche']; ?></td>
-                            <td><?php echo $Lanche['preco']; ?></td>
-                            <td><?php echo $Lanche['ingredientes']; ?></td>
+                            <td><?php echo $lanche['id_lanche']; ?></td>
+                            <td><?php echo $lanche['nome_lanche']; ?></td>
+                            <td><?php echo $lanche['preco']; ?></td>
+                            <td><?php echo $lanche['ingredientes']; ?></td>
                         </tr>
                 <?php endforeach; ?>
                 </tbody>
