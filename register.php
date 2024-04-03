@@ -1,3 +1,20 @@
+<?php
+require_once 'db/db.php';
+require_once 'app/Controller/controlerusuarios.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verifica se é uma submissão de formulário para adicionar um novo usuário
+    if (isset($_POST['nome_completo']) && isset($_POST['nome_usuario']) && isset($_POST['cpf']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_FILES['imagem'])) {
+        $foto_perfil = "./app/public/upload/" . $_FILES['imagem']['name'];
+        move_uploaded_file($_FILES['imagem']['tmp_name'], $foto_perfil);
+
+        $userController = new userController($pdo);
+        $userController->criarUser($_POST['nome_completo'], $_POST['nome_usuario'], $_POST['cpf'], $_POST['email'], $_POST['senha'], 0, $foto_perfil);
+    }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,12 +28,23 @@
     <link rel="shortcut icon" href="img/logo lunch fit.png" type="image/png">
 </head>
 <body>
+    
     <div class="container">
-        <form class="login-form">
+        <form class="login-form" action="index.php" method="post" enctype="multipart/form-data">
+        
             <h2>SING-UP</h2>
             <div class="form-group">
-                <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                <input type="text" id="nome" name="nome_completo" placeholder="Nome Completo" required>
             </div>
+
+            <div class="form-group">
+                <input type="text" id="nome" name="nome_usuario" placeholder="Nome de Usuário" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="nome" name="cpf" placeholder="CPF" required>
+            </div>
+
             <div class="form-group">
         
                 <input type="email" id="email" name="email" placeholder="E-mail" required>
@@ -29,19 +57,16 @@
 
             <div class="form-group">
         
-                <input type="password" id="c-senha" name="c-senha" placeholder="Confirmar Senha" required>
+                <input type="file" name="imagem" accept="image/*">
             </div>
 
-            <div class="form-group">
-        
-                <input type="number" id="cpf" name="cpf" placeholder="CPF" required>
-            </div>
+            
 
  <br>
 
             <button type="submit" class="btn">CADASTRE-SE</button>
 <br><br>
-            <button type="submit" class="butn"><a href="login.php">LOGIN</a></button>
+            <button class="butn"><a href="login.php">LOGIN</a></button>
            
         </form>
     </div>
