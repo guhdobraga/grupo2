@@ -54,7 +54,9 @@
 <!--Texto --->
     <div class="text-box">
         <div class="text-content">
-            <h1>A importância dos lanches saudáveis ao longo do dia. Todos sabemos que a dieta e o estilo de vida são super importantes e têm uma enorme influência na nossa saúde e felicidade.</h1>
+            <h2>Transforme sua rotina com energia e vitalidade!</h2> 
+           <p> Experimente nossos deliciosos lanches saudáveis hoje mesmo. Comece já a ter uma vida mais equilibrada e saborosa. <br><br>
+            Experimente agora!</p>
         </div>
     </div>
 <!--Texto --->
@@ -62,7 +64,7 @@
 <!--Imagem 1 --->
     <div class="img-box">
         <div class="img-content">
-            <img src="img/lanche.jfif">
+            <img src="img/lanche.jfif"> 
         </div>
     </div>
 <!--Imagem 1 --->
