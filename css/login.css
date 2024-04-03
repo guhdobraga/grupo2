@@ -2,7 +2,7 @@
     background-color: #282828; 
     color: #fefefe; 
 }
-butao {
+.butao {
     position: absolute;
     left: 91%;
     padding: 10px 20px;
@@ -171,6 +171,15 @@ a {
     width:25px;
     height: 25px;
     
+}
+
+input {
+    width: 11vw;
+}
+
+input[type="file"] {
+    width: 11vw;
+    font-size: 10px;
 }
 
 

@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         integrity="sha384-fFoSrn81UfBvgEaHKeFt4v8izycFy2s10a97+OO3oqWwRtxrXz5C4ACJoHux2+o5" crossorigin="anonymous">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/responsive-login.css">
+    <link rel="stylesheet" href="css/responsive-index.css">
     <link rel="shortcut icon" href="img/logo lunch fit.png" type="image/png">
 </head>
 
