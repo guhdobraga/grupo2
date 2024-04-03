@@ -32,12 +32,11 @@ class LancheModel
         $nome_lanche,
         $preco,
         $ingredientes,
-        $img_lanche
     ) {
-        $sql = "UPDATE lanches SET nome_lanche = ?, preco = ?, ingredientes = ? img_lanche = ?
+        $sql = "UPDATE lanches SET nome_lanche = ?, preco = ?, ingredientes = ? 
     WHERE id_lanche = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome_lanche, $preco, $ingredientes, $img_lanche]);
+        $stmt->execute([$nome_lanche, $preco, $ingredientes, $id_lanche]);
     }
 
 

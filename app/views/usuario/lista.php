@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista de Endereços</title>
+    <title>Lista de Usuarios</title>
 </head>
 <body>
     <fieldset>
-        <legend><h1>Lista de Endereços</h1></legend>
+        <legend><h1>Lista de Usuarios</h1></legend>
             <table border="1">
                 <thead>
                     <tr>
                         <th>id_user</th>											
                         <th>nome_completo</th>
                         <th>nome_usuario</th>
-                        <th>cpf</th>
                         <th>email</th>
+                        <th>cpf</th>
                         <th>senha</th>
                         <th>adm</th>
                         <th>foto_perfil	</th>
@@ -26,10 +26,11 @@
                             <td><?php echo $user['id_user']; ?></td>
                             <td><?php echo $user['nome_completo']; ?></td>
                             <td><?php echo $user['nome_usuario']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
                             <td><?php echo $user['cpf']; ?></td>
                             <td><?php echo $user['senha']; ?></td>
                             <td><?php echo $user['adm']; ?></td>
-                            <td><?php echo $user['foto_perfil']; ?></td>
+                            <td><img src='../../public/upload/<?php echo $user['foto_perfil']; ?>' alt="Foto do Perfil" width="100px"></td>
                         </tr>
                 <?php endforeach; ?>
                 </tbody>

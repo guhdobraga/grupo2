@@ -21,9 +21,9 @@
                     <tbody>
                         <tr>
                             <td><?php echo $End['id_endereco']; ?></td>
-                            <td><?php echo $End['cidade']; ?></td>
+                             <td><?php echo $End['rua']; ?></td>
                             <td><?php echo $End['bairro']; ?></td>
-                            <td><?php echo $End['rua']; ?></td>
+                             <td><?php echo $End['cidade']; ?></td>
                             <td><?php echo $End['numero']; ?></td>
                         </tr>
                 <?php endforeach; ?>

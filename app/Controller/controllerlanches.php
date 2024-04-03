@@ -1,5 +1,5 @@
 <?php
-require_once 'app/Model/modellanches.php';
+require_once 'C:\xampp\htdocs\grupo2\grupo2\app\model\modellanches.php';
 
 class lancheController
 {
@@ -23,7 +23,7 @@ class lancheController
     public function exibirListaLanches()
     {
         $Lanches = $this->lanchemodel->listarLanche();
-        include 'app/views/lanches/lista.php';
+        include 'C:\xampp\htdocs\grupo2\grupo2\app\views\lanches\lista.php';
     }
 
     public function atualizarLanche($id_Lanche, $nome_lanche, $preco, $ingredientes, $img_lanche)

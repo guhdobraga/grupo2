@@ -26,21 +26,10 @@ class userModel
     }
 
     //Model para atualizar users
-    public function
-    atualizarUser(
-        $id_user,
-        $nome_completo,
-        $nome_usuario,
-        $cpf,
-        $email,
-        $senha,
-        $adm,
-        $foto_perfil
-    ) {
-        $sql = "UPDATE users SET nome_completo = ?, nome_usuario = ?, cpf = ? email = ?, senha = ?, adm = ?, foto_perfil = ?
-    WHERE id_user = ?";
+    public function atualizarUser($id_user, $nome_completo, $nome_usuario, $cpf, $email, $senha, $adm) {
+        $sql = "UPDATE users SET nome_completo = ?, nome_usuario = ?, cpf = ?, email = ?, senha = ?, adm = ? WHERE id_user = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome_completo, $nome_usuario, $cpf, $email, $senha, $adm, $foto_perfil, $id_user]);
+        $stmt->execute([$nome_completo, $nome_usuario, $cpf, $email, $senha, $adm, $id_user]);
     }
 
 
