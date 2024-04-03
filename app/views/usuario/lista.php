@@ -27,6 +27,7 @@
                             <td><?php echo $user['nome_completo']; ?></td>
                             <td><?php echo $user['nome_usuario']; ?></td>
                             <td><?php echo $user['cpf']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
                             <td><?php echo $user['senha']; ?></td>
                             <td><?php echo $user['adm']; ?></td>
                             <td><?php echo $user['foto_perfil']; ?></td>

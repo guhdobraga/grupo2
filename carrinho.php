@@ -66,9 +66,9 @@
 </div>
 </section>
 <div class="last-button">
-<button class="finish-button">FINALIZAR CARRINHO</button>
-</div>
+<button class="finish-button">FINALIZAR COMPRA</button>
 <button class="butao" id="toggleButton">Modo Noturno</button>
+</div>
 </section>
 <!--Footer --->
 <section class="main-footer">

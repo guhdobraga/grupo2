@@ -1,19 +1,5 @@
 <?php
 
-require_once 'db/db.php';
-require_once 'app/controller/controllerlanches.php';
-require_once 'app/controller/controllerpedidos.php';
-
-
-
-session_start();
-
-// Verifique se o usuário já está logado e redirecione-o para a página apropriada
-if (!isset($_SESSION['id_user'])) {
-    header("Location: login.php"); // Redirecione para a página de dashboard ou outra página após o login
-    exit();
-}
-
 include_once('db/config.php');
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {

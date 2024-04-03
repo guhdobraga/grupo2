@@ -1,17 +1,16 @@
 <?php
 require_once 'db/db.php';
-require_once 'app/Controller/controlerusuarios.php';
+require_once 'app/Controller/controllerusuarios.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se é uma submissão de formulário para adicionar um novo usuário
-    if (isset($_POST['nome_completo']) && isset($_POST['nome_usuario']) && isset($_POST['cpf']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_FILES['imagem'])) {
-        $foto_perfil = "./app/public/upload/" . $_FILES['imagem']['name'];
-        move_uploaded_file($_FILES['imagem']['tmp_name'], $foto_perfil);
+    if (isset($_POST['nome_completo']) && isset($_POST['nome_usuario']) && isset($_POST['cpf']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_FILES['foto_perfil'])) {
+        $foto_perfil = "./app/public/upload/" . $_FILES['foto_perfil']['name'];
+        move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $foto_perfil);
 
         $userController = new userController($pdo);
         $userController->criarUser($_POST['nome_completo'], $_POST['nome_usuario'], $_POST['cpf'], $_POST['email'], $_POST['senha'], 0, $foto_perfil);
     }
-
 }
 ?>
 
@@ -32,46 +31,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-
     <?php
-    if (isset($_POST['submit'])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome_completo = $_POST['nome_completo'];
         $nome_usuario = $_POST['nome_usuario'];
         $cpf = $_POST['cpf'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        $confirm_password = $_POST['confirm_password'];
-        $foto_perfil = $_POST['foto_perfil'];
+        $confirm_password = $_POST['c-senha']; 
+        $foto_perfil = $_FILES['foto_perfil']['name'];
 
-
-        if (isset($_FILES["foto_perfil"]) && $_FILES["foto_perfil"]["error"] === UPLOAD_ERR_OK) {
-            $foto_nome = $_FILES["foto_perfil"]["name"];
-            $foto_temp = $_FILES["foto_perfil"]["tmp_name"];
-            $foto_destino = "./uploads" . $foto_nome; // Diretório onde a imagem será armazenada
-    
-            // Mover a imagem para o diretório de uploads
-            move_uploaded_file($foto_temp, $foto_destino);
-        } else {
-            $foto_destino = null; // Sem imagem
-        }
-        if ($password !== $confirm_password) {
+        if ($senha !== $confirm_password) { 
             echo "As senhas não coincidem. Por favor, tente novamente.";
         } else {
             try {
-                // Inserir a notícia no banco de dados
+                $foto_destino = "./uploads/" . $foto_perfil;
+                move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $foto_destino);
+
+                // Inserir usuário no banco de dados
                 $sql = "INSERT INTO users (nome_completo, nome_usuario, cpf, email, senha, foto_perfil) VALUES (?, ?, ?, ?, ?, ?)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$nome_completo, $nome_usuario, $cpf, $email, $senha, $foto_destino]);
 
-                echo '<h1> Usuário cadastrada com sucesso! </h1>';
+                echo '<h1> Usuário cadastrado com sucesso! </h1>';
             } catch (PDOException $e) {
                 echo "Erro ao cadastrar o usuário: " . $e->getMessage();
             }
         }
     }
-
     ?>
-
+    
 
     <div class="container">
         <form class="login-form" action="register.php" method="post" enctype="multipart/form-data">

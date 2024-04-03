@@ -28,9 +28,9 @@ class pedLancheController
             echo "Lamentamos, mas não foi possível realizar o cancelamento do seu pedido :(";
         }
     }
-    public function listarLanchesPedidos($nome_completo)
+    public function listarLanchesPedidos($id_pedido)
     {
-        return $this->pedlanchemodel->listarLanchesPedidos($nome_completo);
+        return $this->pedlanchemodel->listarLanchesPedidos($id_pedido);
     }
 
     public function listarHistorico() {

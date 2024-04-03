@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// Verifique se o usuário já está logado e redirecione-o para a página apropriada
+if (isset($_SESSION['id'])) {
+    header("Location: logout.php"); // Redirecione para a página de dashboard ou outra página após o login
+    exit();
+}
+
+include_once('db/db.php');
+
+if (isset($_POST['email']) && isset($_POST['senha'])) {
+  
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,7 +35,7 @@
             </div>
             <div class="form-group">
         
-                <input type="password" id="password" name="password" placeholder="Senha" required>
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
             </div>
 
             <div class="social-buttons">
