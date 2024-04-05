@@ -82,7 +82,7 @@
                 <h1 class="footer-text">
                 All rights reserved by Lunch Fit©
                 </h1>
-           
+                <a href="politica.php" class="btn">Política de Privacidade</a>
         </div>
        
         </div>
