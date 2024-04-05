@@ -76,6 +76,7 @@
                     <img src="img/logo.png">
                 </div>
             </div>
+        
             <div class="meio">
 
                 <h1 class="footer-text">

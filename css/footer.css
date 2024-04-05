@@ -12,6 +12,7 @@
 .main-footer {
     display: flex;
     align-items: center;
+    margin-top: 400px;
     background-color: #e2e2b7;
 }
 
