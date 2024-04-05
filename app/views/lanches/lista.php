@@ -1,4 +1,6 @@
-
+<?php
+include_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php'
+?>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +10,7 @@
 <body>
     <fieldset>
         <legend><h1>Lista de lanches</h1></legend>
-            <table border="1">
+            <table border="1" width="500px">
                 <thead>
                     <tr>
                         <th>id do lanche</th>			

@@ -57,7 +57,16 @@ class pedlancheModel
 
         return $consultaLanchesPedidos->fetchAll(PDO::FETCH_ASSOC);
     }
-    private function registrarHistorico($id_pedido, $id_lanche, $nome_lanche, $nome_completo)
+
+    public function listartodosLanchesPedidos()
+    {
+        $consultaLanchesPedidos = $this->pdo->query("SELECT * FROM pedidos");
+        $consultaLanchesPedidos->execute();
+
+        return $consultaLanchesPedidos->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private function registrarHistorico($id_pedido, $id_lanche, $nome_lanche, $preco, $nome_completo, $rua, $numero, $quantidade)
     {
         $inserirHistorico = $this->pdo->prepare("INSERT INTO historico (id_pedido, nome_lanche, nome_completo) VALUES (?, ?, ?)");
         $inserirHistorico->execute([$id_pedido, $id_lanche, $nome_lanche, $nome_completo]);

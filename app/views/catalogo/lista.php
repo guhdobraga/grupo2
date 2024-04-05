@@ -3,6 +3,8 @@
 
 <head>
     <title>Lista de lanches</title>
+    <link rel="stylesheet" href="css/lanches.css">
+
 </head>
 
 <body>

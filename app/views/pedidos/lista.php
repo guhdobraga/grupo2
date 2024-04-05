@@ -1,3 +1,7 @@
+<?php
+include_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php'
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
