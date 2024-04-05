@@ -29,6 +29,9 @@
            
         </div>
         <div class="dir">
+            <div class="shop-icon">
+            <a href="carrinho.php"><img src="img/carrinho-de-compras.png"></a>
+            </div>
             <div class="user-icon">
             <a href="login.php"><img src="img/user-ico.png"></a>
             </div>

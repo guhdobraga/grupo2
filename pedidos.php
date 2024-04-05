@@ -62,10 +62,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
 </head>
 
 <body>
-    <header>
-
-    </header>
-
+<!--Header --->
+<section class="main-header">
+        <div class="esq">
+            <div class="header-logo">
+                <a href="index.php"><img src="img/logo.png"></a>
+            </div>
+        </div>
+        <div class="meio">
+           
+                <ul class="header-text">
+                    <li><a href="lanches.php">Lanches</a></li>
+                    <li><a href="receitas.php">Receitas</a></li>
+                    <li><a href="pedidos.php">Pedidos</a></li>
+                </ul>
+           
+        </div>
+        <div class="dir">
+            <div class="shop-icon">
+            <a href="carrinho.php"><img src="img/carrinho-de-compras.png"></a>
+            </div>
+            <div class="user-icon">
+            <a href="login.php"><img src="img/user-ico.png"></a>
+            </div>
+        </div>
+</section>
+<!--Header --->
     <section>
         <h4>Pedidos</h4><br>
         <ul>
@@ -100,10 +122,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
 
 
 
-    <footer>
-
-    </footer>
-
+    <section class="main-footer">
+        <div class="esq esq-2">
+            <div class="footer-logo">
+                <img src="img/logo.png">
+            </div>
+        </div>
+        <div class="meio">
+           
+                <h1 class="footer-text">
+                All rights reserved by Lunch Fit©
+                </h1>
+                <a href="politica.php" class="btn2">Política de Privacidade</a>
+        </div>
+       
+        </div>
+</section>
 </body>
 
 </html>
@@ -135,3 +169,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
             document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
         }
     </script>
+
+    

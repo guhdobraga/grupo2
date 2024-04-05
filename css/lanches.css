@@ -22,64 +22,7 @@
 h1 {
     margin-left: 5vh;
 }
-.dark-mode {
-    background-color: #282828; 
-    color: #fefefe; 
-}
-.butao {
-    position: absolute;
-    left: 91%;
-    padding: 10px 20px;
-    background-color: #4E437B;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    top: 15px;
-  }
 
-  .btn {
-    background-color: #4CAF50; 
-    border: none; 
-    color: white; 
-    padding: 10px 22px; 
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
-    font-size: 16px; 
-    margin: 4px 2px; 
-    transition-duration: 0.4s; 
-    cursor: pointer; 
-    border-radius: 20px; 
-  }
-  
-  .btn:hover {
-    background-color: #45a049; 
-    color: white; 
-  }
-  
-  .butao:hover {
-    background-color: #b7c978;
-    transition: 0.25s;
-  }
-  
-  #toggleButton {
-
-    border-radius: 12px;
-    position:fixed
-    /* Estilos específicos para o botão com o identificador toggleButton */
-  }
-  
-  /* Estilos para o modo noturno */
-  .modo-noturno .butao {
-    background-color: #343a40;
-  }
-  
-  .modo-noturno .butao:hover {
-    background-color:#1d2124;
-    transition: 0.25s;
-}
 
 .btn {
   background-color: #4CAF50; 
