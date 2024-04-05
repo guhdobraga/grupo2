@@ -60,9 +60,6 @@
 }
 
 
-
-
-
 .second-content {
     display: flex;
     justify-content: center;
@@ -73,4 +70,22 @@
 .flex {
     
     justify-content: space-around;
+}
+
+button {
+    background-color: #efeb79; 
+    border: none; 
+    color: white; 
+    padding: 15px 32px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 20px; 
+}
+
+button:hover {
+    background-color: #febe64; 
 }
