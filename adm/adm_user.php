@@ -1,12 +1,12 @@
 <?php
-require_once 'C:\xampp\htdocs\grupo2\db\db.php';
-require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerusuarios.php';
+require_once 'C:/xampp/htdocs/grupo2/db/db.php';
+require_once 'C:/xampp/htdocs/grupo2/app/Controller/controllerusuarios.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se é uma submissão de formulário para adicionar um novo usuário
     if (isset($_POST['nome_completo']) && isset($_POST['nome_usuario']) && isset($_POST['cpf']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_FILES['foto_perfil'])) {
         $foto_perfil = $_FILES['foto_perfil']['name'];
-$caminho = "/app/public/upload/";
+$caminho = "C:/xampp/htdocs/grupo2/app/public/upload/";
         move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminho . $foto_perfil);
 
         $userController = new userController($pdo);

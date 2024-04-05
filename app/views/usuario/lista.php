@@ -30,7 +30,7 @@
                             <td><?php echo $user['email']; ?></td>
                             <td><?php echo $user['senha']; ?></td>
                             <td><?php echo $user['adm']; ?></td>
-                            <td><?php echo $user['foto_perfil']; ?></td>
+                            <td><img src="<?= "../../grupo2/app/public/upload/".$user['foto_perfil']; ?>" alt="foto perfil" width="100px"></td>
                         </tr>
                 <?php endforeach; ?>
                 </tbody>

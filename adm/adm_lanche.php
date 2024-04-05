@@ -1,6 +1,6 @@
 <?php
-require_once 'C:\xampp\htdocs\grupo2\db\db.php';
-require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php';
+require_once 'C:/xampp/htdocs/grupo2/db/db.php';
+require_once 'C:/xampp/htdocs/grupo2/app/Controller/controllerlanches.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se é uma submissão de formulário para adicionar um novo lanche

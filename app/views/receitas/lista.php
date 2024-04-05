@@ -15,7 +15,7 @@
         <div class="lanche">
             <div class="first">
                 <div class="imagem">
-                    <img src="<?php echo $receita['img_lanche']; ?>" height="201" width="305">
+                    <img src="<?= "../../grupo2/app/public/foto_lanches/".$receita['img_lanche']; ?>" height="201" width="305">
                     <div class="escrita">
                         <h2>
                             <?php echo $receita['nome_lanche']; ?>
