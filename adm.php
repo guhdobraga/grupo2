@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once 'gerar_pdf.php';
     
     if($_SESSION['adm'] != 1) {
         header('Location: index.php');
@@ -52,6 +53,10 @@
                             <button><a href="adm/adm_user.php">Administação de Usuários</a></button>
                             <button><a href="adm/adm_lanche.php">Administação de Lanches</a></button>
                             <button><a href="adm/adm_endereco.php">Administação de Endereços</a></button>
+                            <a href="<?= $filename ?>" download="<?= $filename ?>">
+                            <button style="color:#eb6427;" type="button">Baixar PDF</button>
+                            </a>
+
                         </div>
                         <!--Imagem 2 --->
                         <button class="butao" id="toggleButton">Modo Noturno</button>
