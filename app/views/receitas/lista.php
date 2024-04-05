@@ -14,9 +14,8 @@
     <?php foreach ($receitas as $receita): ?>
         <div class="lanche">
             <div class="first">
-                <!DOCTYPE html>
                 <div class="imagem">
-                    <img <?php echo $receita['img_lanche']; ?> height="201" width="305">
+                    <img src="<?php echo $receita['img_lanche']; ?>" height="201" width="305">
                     <div class="escrita">
                         <h2>
                             <?php echo $receita['nome_lanche']; ?>
@@ -27,7 +26,8 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
 
 </body>
 

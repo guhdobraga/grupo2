@@ -1,6 +1,9 @@
 <?php
 
-include_once('db/config.php');
+include_once('C:\xampp\htdocs\grupo2\db\db.php');
+include_once('C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php');
+include_once('C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php');
+
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
 }
