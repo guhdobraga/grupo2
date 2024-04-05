@@ -2,11 +2,11 @@
 session_start();
 
 if (isset($_SESSION['id_user'])) {
-    header("Location: logout.php"); 
+    header("Location: logout.php");
     exit();
 }
 
-include_once ('C:\xampp\htdocs\grupo2\db\db.php');
+include_once('C:\xampp\htdocs\grupo2\db\db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['email']) && isset($_POST['senha'])) {
@@ -18,21 +18,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $user = $sql_code->fetch(PDO::FETCH_ASSOC);
 
+
+        $sql_code2 = $pdo->prepare("SELECT * FROM endereco WHERE id_user = ?");
+        $sql_code2->execute([$user['id_user']]);
+
+        $user2 = $sql_code->fetch(PDO::FETCH_ASSOC);
+
+
         if ($user) {
             if ($senha == $user['senha']) { // Comparação direta da senha
                 $_SESSION['id_user'] = $user['id_user'];
                 $_SESSION['nome_completo'] = $user['nome_completo'];
                 $_SESSION['adm'] = $user['adm'];
 
-                $alvl = $user['adm']; 
 
-                switch ($alvl) { 
+
+                $_SESSION['cidade'] = $user2['cidade'];
+                $_SESSION['bairro'] = $user2['bairro'];
+                $_SESSION['rua'] = $user2['rua'];
+                $_SESSION['numero'] = $user2['numero'];
+
+                $alvl = $user['adm'];
+
+                switch ($alvl) {
                     case 0:
                         header("Location: index.php");
-                        exit(); 
+                        exit();
                     case 1:
                         header("Location: adm.php");
-                        exit(); 
+                        exit();
                     default:
                         echo "USUÁRIO SEM PERMISSÃO, FAVOR CONTATAR O ADMIN!!";
                         break;
@@ -61,10 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunch Fit | Login</title>
-    <link rel="stylesheet" href="css/login.css"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha384-fFoSrn81UfBvgEaHKeFt4v8izycFy2s10a97+OO3oqWwRtxrXz5C4ACJoHux2+o5" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/login.css" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-fFoSrn81UfBvgEaHKeFt4v8izycFy2s10a97+OO3oqWwRtxrXz5C4ACJoHux2+o5" crossorigin="anonymous">
     <link rel="stylesheet" href="css/responsive-login.css">
 
     <link rel="stylesheet" href="css/responsive-index.css">
@@ -105,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!--Script para dark mode-->
     <script>
-        document.getElementById("toggleButton").addEventListener("click", function () {
+        document.getElementById("toggleButton").addEventListener("click", function() {
             document.body.classList.toggle("dark-mode");
             var sol = document.getElementById("sol");
             var lua = document.getElementById("lua");

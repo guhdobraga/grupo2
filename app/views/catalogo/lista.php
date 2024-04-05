@@ -10,7 +10,7 @@
 <body>
     <section class="">
 
-<?php
+<?php  
     foreach ($catalogos as $catalogo) : ?>
             <div>
                 <div class="products">
@@ -21,9 +21,14 @@
                     <?php endif; ?>
                     <?php echo $catalogo['nome_lanche']; ?><br>
                     <strong> R$<?php echo $catalogo['preco']; ?></strong>
+                  
                     <form method="post" action="carrinho.php">
                         <input type="hidden" name="id_lanche" value="<?php echo $catalogo['id_lanche']; ?>">
                         <input type="hidden" name="nome_lanche" value="<?php echo $catalogo['nome_lanche']; ?>">
+                        <input type="hidden" name="endereco" value="<?php echo $_SESSION['cidade']; ?>">
+                        <input type="hidden" name="endereco" value="<?php echo $_SESSION['bairro']; ?>">
+                        <input type="hidden" name="endereco" value="<?php echo $_SESSION['rua']; ?>">
+                        <input type="hidden" name="endereco" value="<?php echo $_SESSION['numero']; ?>">
                         <button class="btn" type="submit" name="pedir">Adicionar ao carrinho</button>
                     </form>
                 </div>

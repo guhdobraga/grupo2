@@ -25,6 +25,7 @@
                     <li><a href="lanches.php">Lanches</a></li>
                     <li><a href="receitas.php">Receitas</a></li>
                     <li><a href="pedidos.php">Pedidos</a></li>
+                    <li><a href="meuendereco.php">Endereço</a></li>
                 </ul>
            
         </div>
