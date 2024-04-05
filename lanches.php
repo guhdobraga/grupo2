@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pedir'])) {
     $nome_lanche = $_POST['nome_lanche'];
     $nome_completo = $_SESSION['nome_completo'];
 
-    $pedLancheController->pedlancheModel($, $livroNome, $usernome);
+    $pedLancheController->pedlancheModel($id_lanche, $nome_lanche, $nome_completo);
 }
 
 

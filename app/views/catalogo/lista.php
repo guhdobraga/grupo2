@@ -24,7 +24,7 @@
                                     <form method="post" action="lanches.php">
                                         <input type="hidden" name="id_lanche" value="<?php echo $catalogo['id_lanche']; ?>">
                                         <input type="hidden" name="nome" value="<?php echo $catalogo['nome_lanche']; ?>">
-                                        <button type="submit" name="pedir">Adicionar ao carrinho</button>
+                                        <button class="btn" type="submit" name="pedir">Adicionar ao carrinho</button>
                                     </form>
                                 </div>
                           
