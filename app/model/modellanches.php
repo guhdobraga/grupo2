@@ -25,20 +25,26 @@ class LancheModel
         return $stmt->fetchALL(PDO::FETCH_ASSOC);
     }
 
-    //Model para atualizar lanches
-    public function
-    atualizarLanche(
-        $id_lanche,
-        $nome_lanche,
-        $preco,
-        $ingredientes,
-        $img_lanche
-    ) {
-        $sql = "UPDATE lanches SET nome_lanche = ?, preco = ?, ingredientes = ? img_lanche = ?
-    WHERE id_lanche = ?";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome_lanche, $preco, $ingredientes, $img_lanche]);
+
+
+    //Model para listar Receitas
+    public function listarReceita()
+    {
+        $sql = "SELECT * FROM lanches";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchALL(PDO::FETCH_ASSOC);
     }
+
+
+    
+
+   //Model para atualizar lanches
+public function atualizarLanche($id_lanche, $nome_lanche, $preco, $ingredientes, $img_lanche)
+{
+    $sql = "UPDATE lanches SET nome_lanche = ?, preco = ?, ingredientes = ?, img_lanche = ? WHERE id_lanche = ?";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([$nome_lanche, $preco, $ingredientes, $img_lanche, $id_lanche]);
+}
 
 
     // Método para deletar lanche

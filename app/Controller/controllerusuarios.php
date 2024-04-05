@@ -1,5 +1,5 @@
 <?php
-require_once 'app/model/modelusuario.php';
+require_once 'C:\xampp\htdocs\grupo2\app\model\modelusuario.php';
 
 class userController
 {
@@ -23,7 +23,7 @@ class userController
     public function exibirListausers()
     {
         $users = $this->usermodel->listarusers();
-        include 'app/views/usuario/lista.php';
+        include 'C:\xampp\htdocs\grupo2\app\views\usuario\lista.php';
     }
 
     public function atualizarUser($id_user, $nome_completo, $nome_usuario, $cpf, $email, $senha, $adm, $foto_perfil)

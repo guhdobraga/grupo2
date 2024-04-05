@@ -34,7 +34,7 @@ class EnderecoModel
         $rua,
         $numero
     ) {
-        $sql = "UPDATE endereco SET cidade = ?, bairro = ?, rua = ? numero = ?
+        $sql = "UPDATE endereco SET cidade = ?, bairro = ?, rua = ?, numero = ?
     WHERE id_endereco = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$cidade, $bairro, $rua, $numero]);
@@ -51,4 +51,3 @@ class EnderecoModel
 }
 
 
-?>

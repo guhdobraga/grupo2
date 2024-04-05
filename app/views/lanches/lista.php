@@ -11,10 +11,11 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>id_lanche</th>			
-                        <th>nome_lanche</th>
-                        <th>preco</th>
-                        <th>ingredientes</th>
+                        <th>id do lanche</th>			
+                        <th>Nome do lanche</th>
+                        <th>Preço</th>
+                        <th>Ingredientes</th>
+                        <th>Imagem</th>
                     </tr>
                 </thead>
                 <?php foreach ($lanches as $lanche): ?>
@@ -24,6 +25,7 @@
                             <td><?php echo $lanche['nome_lanche']; ?></td>
                             <td><?php echo $lanche['preco']; ?></td>
                             <td><?php echo $lanche['ingredientes']; ?></td>
+                            <td><?php echo $lanche['img_lanche']; ?></td>
                         </tr>
                 <?php endforeach; ?>
                 </tbody>

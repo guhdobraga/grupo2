@@ -1,6 +1,6 @@
 <?php
-require_once 'db/db.php';
-require_once 'app/Controller/controllerusuarios.php';
+require_once 'C:\xampp\htdocs\grupo2\db\db.php';
+require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerusuarios.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se é uma submissão de formulário para adicionar um novo usuário
@@ -39,10 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cpf = $_POST['cpf'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        $confirm_password = $_POST['c-senha']; 
+        $confirm_password = $_POST['c-senha'];
         $foto_perfil = $_FILES['foto_perfil']['name'];
 
-        if ($senha !== $confirm_password) { 
+        if ($senha !== $confirm_password) {
             echo "As senhas não coincidem. Por favor, tente novamente.";
         } else {
             try {
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     ?>
-    
+
 
     <div class="container">
         <form class="login-form" action="register.php" method="post" enctype="multipart/form-data">
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-        
+
                 <input type="password" id="c-senha" name="c-senha" placeholder="Confirmar Senha" required>
             </div>
 
@@ -114,29 +114,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!--Script para dark mode-->
 <script>
-document.getElementById("toggleButton").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");    
-    var sol = document.getElementById("sol");
-    var lua = document.getElementById("lua");
-    if (document.body.classList.contains("dark-mode")) {
-        document.getElementById("toggleButton").textContent = "Modo Claro";
-        sol.style.display = "none"; // Oculta o sol no modo noturno
-        lua.style.display = "block"; // Mostra a lua no modo noturno
-    } else {
-        document.getElementById("toggleButton").textContent = "Modo Noturno";
-        sol.style.display = "block"; // Mostra o sol no modo claro
-        lua.style.display = "none"; // Oculta a lua no modo claro
-    }
-});
+    document.getElementById("toggleButton").addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        var sol = document.getElementById("sol");
+        var lua = document.getElementById("lua");
+        if (document.body.classList.contains("dark-mode")) {
+            document.getElementById("toggleButton").textContent = "Modo Claro";
+            sol.style.display = "none"; // Oculta o sol no modo noturno
+            lua.style.display = "block"; // Mostra a lua no modo noturno
+        } else {
+            document.getElementById("toggleButton").textContent = "Modo Noturno";
+            sol.style.display = "block"; // Mostra o sol no modo claro
+            lua.style.display = "none"; // Oculta a lua no modo claro
+        }
+    });
 
-// Verifica o modo atual ao carregar a página
-if (document.body.classList.contains("dark-mode")) {
-    document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
-    document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
-} else {
-    document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
-    document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
-}
+    // Verifica o modo atual ao carregar a página
+    if (document.body.classList.contains("dark-mode")) {
+        document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
+        document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
+    } else {
+        document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
+        document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
+    }
 
 
 

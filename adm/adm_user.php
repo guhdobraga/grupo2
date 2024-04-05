@@ -1,21 +1,12 @@
 <?php
-    session_start();
-    var_dump($_SESSION);
-    if($_SESSION['adm'] != 1) {
-        header('Location: index.php');
-    }
-?>
-
-
-<?php
-require_once 'db\db.php';
-require_once 'app\Controller\controllerusuarios.php';
+require_once 'C:\xampp\htdocs\grupo2\db\db.php';
+require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerusuarios.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se é uma submissão de formulário para adicionar um novo usuário
     if (isset($_POST['nome_completo']) && isset($_POST['nome_usuario']) && isset($_POST['cpf']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_FILES['foto_perfil'])) {
         $foto_perfil = $_FILES['foto_perfil']['name'];
-        $caminho = "/app/public/upload/";
+$caminho = "/app/public/upload/";
         move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminho . $foto_perfil);
 
         $userController = new userController($pdo);
@@ -45,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //exibir user
 
     if (isset($_POST['exibir_user'])) {
-        $userController->exibirListausers($_POST['exibir_user']);
+        $userController->exibirListausers();
     }
 
     $users = $userController->listarusers();
@@ -62,11 +53,12 @@ $users = $userController->listarUsers();
     <h1>Usuários</h1>
     <form method="post" enctype="multipart/form-data">
         <select name="id_user">
-            <input type="text" name="nome_completo" placeholder="Nome completo">
-            <input type="text" name="nome_usuario" placeholder="Nome de usuário">
-            <input type="text" name="cpf" placeholder="CPF">
-            <input type="text" name="email" placeholder="E-mail">
-            <input type="password" name="senha" placeholder="Senha">
+            <input type="text" name="nome_completo" placeholder="Nome completo" required>
+            <input type="text" name="nome_usuario" placeholder="Nome de usuário" required>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="text" name="email" placeholder="E-mail" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="text" name="adm" placeholder="Adm" required>
             <input type="file" name="foto_perfil" accept="image/*">
             <button type="submit">Adicionar Usuário</button>
     </form>
@@ -83,12 +75,14 @@ $users = $userController->listarUsers();
                 <option value="<?php echo $user['id_user']; ?>"><?php echo $user['nome_completo']; ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="text" name="atualizar_nome_completo" placeholder="Novo nome completo">
-        <input type="text" name="atualizar_nome_usuario" placeholder="Novo nome de usuário">
-        <input type="text" name="atualizar_cpf" placeholder="CPF">
-        <input type="text" name="atualizar_email" placeholder="E-mail">
-        <input type="password" name="atualizar_senha" placeholder="Senha">
-        <input type="text" name="adm" placeholder="Adm">
+        <input type="text" name="atualizar_nome_completo" placeholder="Novo nome completo" required>
+        <input type="text" name="atualizar_nome_usuario" placeholder="Novo nome de usuário" required>
+        <input type="text" name="atualizar_cpf" placeholder="CPF" required>
+        <input type="text" name="atualizar_email" placeholder="E-mail" required>
+        <input type="password" name="atualizar_senha" placeholder="Senha" required>
+        <input type="text" name="adm" placeholder="Adm" required>
+        <input type="file" name="atualizar_foto_perfil" accept="image/*">
+
         <button type="submit">Atualizar Usuário</button>
     </form>
 

@@ -55,12 +55,15 @@ butao {
 
 .imagem img{
     width: 30vw;
-    height: 35vh;
+    height: 30vh;
 }
 
 .escrita{
     width: 65vw;
-    height: 35vh;
+    height: 30vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    padding-top: 3vh;
     background-color: #D2D2D2;
     text-align: center;
     color: #eb6427;

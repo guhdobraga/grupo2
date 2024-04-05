@@ -1,5 +1,5 @@
 <?php
-require_once 'app/model/modelpedidos.php';
+require_once 'C:\xampp\htdocs\grupo2\app\model\modelpedidos.php';
 
 class pedLancheController
 {
@@ -31,6 +31,12 @@ class pedLancheController
     public function listarLanchesPedidos($id_pedido)
     {
         return $this->pedlanchemodel->listarLanchesPedidos($id_pedido);
+    }
+
+    public function exibirListapedidos($id_pedido)
+    {
+        $pedidos = $this->pedlanchemodel->listarLanchesPedidos($id_pedido);
+        include 'C:\xampp\htdocs\grupo2\app\views\pedidos\lista.php';
     }
 
     public function listarHistorico() {

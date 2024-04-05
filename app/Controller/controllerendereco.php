@@ -1,5 +1,5 @@
 <?php
-require_once 'app/Model/modelendereco.php';
+require_once 'C:\xampp\htdocs\grupo2\app\Model\modelendereco.php';
 
 class enderecoController
 {
@@ -23,7 +23,7 @@ class enderecoController
     public function exibirListaEnds()
     {
         $Ends = $this->enderecomodel->listarEnd();
-        include 'app/views/endereco/lista.php';
+        include 'C:\xampp\htdocs\grupo2\app\views\endereco\lista.php';
     }
 
     public function atualizarEnd($id_endereco, $cidade, $bairro, $rua, $numero)

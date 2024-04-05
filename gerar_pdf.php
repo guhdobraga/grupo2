@@ -1,6 +1,6 @@
 
 <?php
-require_once 'vendor/autoload.php';
+require_once 'C:\xampp\htdocs\grupo2\vendor\autoload.php';
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -11,15 +11,15 @@ $dompdf = new Dompdf($options);
 
 // Inclua o conteúdo HTML das páginas
 ob_start();
-include 'app/views/usuario/lista.php';
+include 'C:\xampp\htdocs\grupo2\app\views\usuario\lista.php';
 $htmlPage1 = ob_get_clean();
 
 ob_start();
-include 'app/views/lanches/lista.php';
+include 'C:\xampp\htdocs\grupo2\app\views\lanches\lista.php';
 $htmlPage2 = ob_get_clean();
 
 ob_start();
-include 'app/views/endereco/lista.php';
+include 'C:\xampp\htdocs\grupo2\app\views\endereco\lista.php';
 $htmlPage3 = ob_get_clean();
 
 // Concatene o conteúdo HTML

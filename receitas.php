@@ -1,3 +1,17 @@
+<?php
+require_once 'C:\xampp\htdocs\grupo2\db\db.php';
+require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php';
+
+  //exibir Receitas
+  if (isset($_POST['exibir_lanche'])) {
+    $lancheController = new LancheController($pdo);
+    $lancheController->exibirListaLanches();
+}
+
+$lancheController = new LancheController($pdo);
+$lanches = $lancheController->listarLanches();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +40,6 @@
            
                 <ul class="header-text">
                     <li><a href="lanches.php">Lanches</a></li>
-                    <li><a href="receitas.php">Receitas</a></li>
                     <li><a href="pedidos.php">Pedidos</a></li>
                 </ul>
            
@@ -39,69 +52,13 @@
 </section>
 <!--Header --->
     <br>
-    <div class="texto">
-        <p>Receitas</p>
-    </div>
-
+   
     <section class="geral">
-        <div class="first">
-            <div class="imagem">
-                <img src="img/frango.jpg" alt="Image" height="201" width="305">
-                
-                    <div class="escrita">
-<br>                        
-        <h2>Sanduíche de frango </h2> 
-        <br><br>
-        <p>O sanduíche de frango é uma delícia irresistível que conquista paladares ao redor do mundo. <br> Com sua combinação de sabores e texturas, é uma opção versátil e satisfatória para 
-            qualquer refeição. <br> O segredo para um sanduíche de frango perfeito está na qualidade dos ingredientes e na preparação cuidadosa.</p>
-                </div>
-                </a>
-            </div>
-        </div>
-    </div>
-       <button class="butao" id="toggleButton">Modo Noturno</button>
+    <?php
+    $lancheController->exibirListaReceitas();
+    ?>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div class="geral2">
-        <div class="first">
-            <div class="imagem">
-                <img src="img/peixe.jpg" alt="Image" height="201" width="305">
-                
-                    <div class="escrita">
-<br>
-        <h2>Sanduíche de salmão </h2>     
-        <br><br>
-        <p>O sanduíche de salmão é uma delícia que combina sabores frescos e saudáveis em cada mordida. <br>
-            Começando com uma base de pão macio e leve, este sanduíche ganha vida com camadas generosas de salmão <br>
-            defumado ou grelhado, oferecendo um sabor rico e uma textura suculenta. 
-            <br>Acompanhe a receita.....</p>               
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div class="geral3">
-        <div class="first">
-            <div class="imagem">
-                <img src="img/queijo-branco.jpg" alt="Image" height="201" width="305">
-                
-                    <div class="escrita"> 
-<br>
-        <h2>Sanduíche de queijo branco </h2>     
-<br>        
-        <p>O sanduíche de salmão é uma delícia que combina sabores frescos e saudáveis em cada mordida. <br>
-            Começando com uma base de pão macio e leve, este sanduíche ganha vida com camadas generosas de salmão <br>
-            defumado ou grelhado, oferecendo um sabor rico e uma textura suculenta. 
-            <br>Acompanhe a receita.....</p>
-         
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    
+     
 
 </section>
 <br>

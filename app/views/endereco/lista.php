@@ -9,11 +9,11 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>id_endereco</th>				
-                        <th>cidade</th>
-                        <th>bairro</th>
-                        <th>rua</th>
-                        <th>numero</th>
+                        <th>Id do endereço</th>				
+                        <th>Cidade</th>
+                        <th>Bairro</th>
+                        <th>Rua</th>
+                        <th>Número</th>
                        
                     </tr>
                 </thead>
