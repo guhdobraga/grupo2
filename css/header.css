@@ -143,3 +143,14 @@ a{
     background-color: #3e8e41;
   }
 
+  .shop-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .shop-icon img {
+    width: 80px;
+    height: 80px;
+  }
+

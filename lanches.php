@@ -55,12 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pedir'])) {
         <div class="meio">
            
                 <ul class="header-text">
+                    <li><a href="lanches.php">Lanches</a></li>
                     <li><a href="receitas.php">Receitas</a></li>
                     <li><a href="pedidos.php">Pedidos</a></li>
                 </ul>
            
         </div>
         <div class="dir">
+            <div class="shop-icon">
+            <a href="carrinho.php"><img src="img/carrinho-de-compras.png"></a>
+            </div>
             <div class="user-icon">
             <a href="login.php"><img src="img/user-ico.png"></a>
             </div>
