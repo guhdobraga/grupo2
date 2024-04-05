@@ -4,7 +4,6 @@ include_once('C:\xampp\htdocs\grupo2\db\db.php');
 include_once('C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php');
 include_once('C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php');
 
-
 if (isset($_POST['email']) && isset($_POST['senha'])) {
 }
 
@@ -55,6 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos do Usuário</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive-index.css">
+    <link rel="shortcut icon" href="img/logo lunch fit.png" type="image/png">
 </head>
 
 <body>
@@ -65,8 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
     <section>
         <h4>Pedidos</h4><br>
         <ul>
+        <?php session_start(); ?>
             <?php $lanchesPedidos = $pedlancheController->listarLanchesPedidos($_SESSION['nome_completo']); ?>
             <?php foreach ($lanchesPedidos as $pedido) : ?>
+                <?php if (isset($_SESSION['nome_completo']) && !empty($_SESSION['nome_completo'])) {
+    $nome_completo = $_SESSION['nome_completo'];
+} else {
+   
+    header("Location: login.php");
+    exit(); 
+}
+?>
                 <li>
                     <?php echo "<strong>Id do lanche: </strong>" . $pedido['id_lanche']; ?> <br>
                     <?php echo "<strong>Lanche: </strong>" . $pedido['nome_lanche']; ?> <br>
@@ -96,32 +109,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
 </html>
 
 
-<!--Script para dark mode-->
-<script>
-document.getElementById("toggleButton").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-    var sol = document.getElementById("sol");
-    var lua = document.getElementById("lua");
-    if (document.body.classList.contains("dark-mode")) {
-        document.getElementById("toggleButton").textContent = "Modo Claro";
-        sol.style.display = "none"; // Oculta o sol no modo noturno
-        lua.style.display = "block"; // Mostra a lua no modo noturno
-    } else {
-        document.getElementById("toggleButton").textContent = "Modo Noturno";
-        sol.style.display = "block"; // Mostra o sol no modo claro
-        lua.style.display = "none"; // Oculta a lua no modo claro
-    }
-});
+    <!--Script para dark mode-->
+    <script>
+        document.getElementById("toggleButton").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            var sol = document.getElementById("sol");
+            var lua = document.getElementById("lua");
+            if (document.body.classList.contains("dark-mode")) {
+                document.getElementById("toggleButton").textContent = "Modo Claro";
+                sol.style.display = "none"; // Oculta o sol no modo noturno
+                lua.style.display = "block"; // Mostra a lua no modo noturno
+            } else {
+                document.getElementById("toggleButton").textContent = "Modo Noturno";
+                sol.style.display = "block"; // Mostra o sol no modo claro
+                lua.style.display = "none"; // Oculta a lua no modo claro
+            }
+        });
 
-// Verifica o modo atual ao carregar a página
-if (document.body.classList.contains("dark-mode")) {
-    document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
-    document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
-} else {
-    document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
-    document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
-}
-
-
-
-</script>
+        // Verifica o modo atual ao carregar a página
+        if (document.body.classList.contains("dark-mode")) {
+            document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
+            document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
+        } else {
+            document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
+            document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
+        }
+    </script>

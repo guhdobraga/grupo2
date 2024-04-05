@@ -1,20 +1,9 @@
-
-   
 <?php
     session_start();
-
+    
     if($_SESSION['adm'] != 1) {
         header('Location: index.php');
     }
-?>
-
-
-<?php
-
-require_once 'db/db.php';
-require_once 'app/controller/controllerlanches.php';
-require_once 'app/controller/controllerpedidos.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +76,7 @@ require_once 'app/controller/controllerpedidos.php';
                     <img src="img/logo.png">
                 </div>
             </div>
+        
             <div class="meio">
 
                 <h1 class="footer-text">

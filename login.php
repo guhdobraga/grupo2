@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql_code = $pdo->prepare("SELECT * FROM users WHERE email = ?");
         $sql_code->execute([$email]);
+        $sql_code = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $sql_code->execute([$email]);
 
         $user = $sql_code->fetch(PDO::FETCH_ASSOC);
 
@@ -26,7 +28,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['adm'] = $user['adm'];
 
                 $alvl = $user['adm']; 
+                $alvl = $user['adm']; 
 
+                switch ($alvl) { 
+                    case 0:
+                        header("Location: index.php");
+                        exit(); 
+                    case 1:
+                        header("Location: adm.php");
+                        exit(); 
+                    default:
+                        echo "USUÁRIO SEM PERMISSÃO, FAVOR CONTATAR O ADMIN!!";
+                        break;
+                }
+            } else {
+                echo '<script>
+                        alert("Senha incorreta");
+                        window.location.href = "login.php";
+                    </script>';
+            }
+        } else {
+            echo '<script>
+                    alert("Usuário não encontrado. Por favor, cadastre-se.");
+                    window.location.href = "register.php";
                 switch ($alvl) { 
                     case 0:
                         header("Location: index.php");
@@ -55,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -75,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="container">
+        <form method="post" action="" class="login-form">
         <form method="post" action="" class="login-form">
             <h2>LOGIN</h2>
             <div class="form-group">
@@ -99,6 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <button type="submit" class="btn">ENTRAR</button>
             <br><br>
+            <button class="butn"><a href="register.php">CADASTRE-SE</a></button>
             <button class="butn"><a href="register.php">CADASTRE-SE</a></button>
             <button class="butao" id="toggleButton">Modo Noturno</button>
         </form>
