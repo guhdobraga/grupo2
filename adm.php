@@ -49,9 +49,9 @@
         <section class="main-content">
             
                         <div>
-                            <button><a href="adm/adm_user.php"></a>Administação de Usuários</button>
-                            <button><a href="adm/adm_lanche.php"></a>Administação de Lanches</button>
-                            <button><a href="adm/adm_endereco.php"></a>Administação de Endereços</button>
+                            <button><a href="adm/adm_user.php">Administação de Usuários</a></button>
+                            <button><a href="adm/adm_lanche.php">Administação de Lanches</a></button>
+                            <button><a href="adm/adm_endereco.php">Administação de Endereços</a></button>
                         </div>
                         <!--Imagem 2 --->
                         <button class="butao" id="toggleButton">Modo Noturno</button>

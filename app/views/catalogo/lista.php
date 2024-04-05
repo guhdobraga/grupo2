@@ -3,6 +3,8 @@
 
 <head>
     <title>Lista de lanches</title>
+    <link rel="stylesheet" href="css/lanches.css">
+
 </head>
 
 <body>
@@ -20,7 +22,7 @@
                                     }
                                     ?>
                                     <?php echo $catalogo['nome_lanche']; ?><br>
-                                    <strong><?php echo $catalogo['preco']; ?> Reais</strong>
+                                    <strong> R$<?php echo $catalogo['preco']; ?></strong>
                                     <form method="post" action="lanches.php">
                                         <input type="hidden" name="id_lanche" value="<?php echo $catalogo['id_lanche']; ?>">
                                         <input type="hidden" name="nome" value="<?php echo $catalogo['nome_lanche']; ?>">
