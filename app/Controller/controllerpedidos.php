@@ -9,9 +9,9 @@ class pedLancheController
         $this->pedlanchemodel = new pedlancheModel($pdo);
     }
 
-    public function pedLanche($id_lanche, $nome_lanche, $preco, $nome_completo, $rua, $numero, $quantidade)
+    public function pedLanche($id_lanche, $nome_lanche, $nome_completo)
     {
-        if ($this->pedlanchemodel->pedLanche($id_lanche, $nome_lanche, $preco, $nome_completo, $rua, $numero, $quantidade)) {
+        if ($this->pedlanchemodel->pedLanche($id_lanche, $nome_lanche, $nome_completo)) {
             header('Location: lanche.php');
             exit();
         } else {
