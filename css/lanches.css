@@ -7,6 +7,7 @@
 
 .products img {
     width: 300px;
+    border: 1px solid;
 }
 
 h1 {
@@ -27,6 +28,26 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     top: 15px;
+  }
+
+  .btn {
+    background-color: #4CAF50; 
+    border: none; 
+    color: white; 
+    padding: 10px 22px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    transition-duration: 0.4s; 
+    cursor: pointer; 
+    border-radius: 20px; 
+  }
+  
+  .btn:hover {
+    background-color: #45a049; 
+    color: white; 
   }
   
   .butao:hover {

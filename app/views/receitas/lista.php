@@ -14,7 +14,6 @@
     <?php foreach ($receitas as $receita): ?>
         <div class="lanche">
             <div class="first">
-                <!DOCTYPE html>
                 <div class="imagem">
                     <img src="<?= "../../grupo2/app/public/foto_lanches/".$receita['img_lanche']; ?>" height="201" width="305">
                     <div class="escrita">
@@ -27,7 +26,8 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
 
 </body>
 

@@ -36,6 +36,16 @@ class LancheModel
     }
 
 
+
+    //Model para listar Catálogo
+    public function listarCatalogo()
+    {
+        $sql = "SELECT * FROM lanches";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchALL(PDO::FETCH_ASSOC);
+    }
+
+
     
 
    //Model para atualizar lanches

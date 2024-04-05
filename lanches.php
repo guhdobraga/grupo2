@@ -1,3 +1,30 @@
+<?php
+require_once 'C:\xampp\htdocs\grupo2\db\db.php';
+require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php';
+require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php';
+
+  //exibir Receitas
+  if (isset($_POST['exibir_lanche'])) {
+    $lancheController = new LancheController($pdo);
+    $lancheController->exibirListaLanches();
+}
+
+$lancheController = new LancheController($pdo);
+$lanches = $lancheController->listarLanches();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pedir'])) {
+    $id_lanche = $_POST['id_lanche'];
+    $nome_lanche = $_POST['nome_lanche'];
+    $nome_completo = $_SESSION['nome_completo'];
+
+    $pedLancheController->pedlancheModel($id_lanche, $nome_lanche, $nome_completo);
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +50,6 @@
         <div class="meio">
            
                 <ul class="header-text">
-                    <li><a href="lanches.php">Lanches</a></li>
                     <li><a href="receitas.php">Receitas</a></li>
                     <li><a href="pedidos.php">Pedidos</a></li>
                 </ul>
@@ -38,34 +64,13 @@
 <!--Header --->
 
 <h1>Lanches</h1>
-
 <section class="main-products">
-    
-    <div class="products">
-        <img src="img/logo.png">
-        <a href="#" class="btn">COMPRAR</a>
-         </div>
-    <div class="products">
-        <img src="img/logo.png">
-    </div>
-    <div class="products">
-        <img src="img/logo.png">
-    </div>
-    <div class="products">
-        <img src="img/logo.png">
-    </div>
-    <div class="products">
-        <img src="img/logo.png">
-    </div>
-    <div class="products">
-        <img src="img/logo.png">
-    </div>
-    <div class="products">
-        <img src="img/logo.png">
-    </div>
-    <div class="products">
-        <img src="img/logo.png">
-    </div>
+ 
+    <?php
+    $lancheController->exibirListaCatalogos();
+    ?>
+
+
     <button class="butao" id="toggleButton">Modo Noturno</button>
 </section>
 
@@ -100,24 +105,21 @@ document.getElementById("toggleButton").addEventListener("click", function() {
     var lua = document.getElementById("lua");
     if (document.body.classList.contains("dark-mode")) {
         document.getElementById("toggleButton").textContent = "Modo Claro";
-        sol.style.display = "none"; // Oculta o sol no modo noturno
-        lua.style.display = "block"; // Mostra a lua no modo noturno
+        sol.style.display = "none"; 
+        lua.style.display = "block";
     } else {
         document.getElementById("toggleButton").textContent = "Modo Noturno";
-        sol.style.display = "block"; // Mostra o sol no modo claro
-        lua.style.display = "none"; // Oculta a lua no modo claro
+        sol.style.display = "block"; 
+        lua.style.display = "none"; 
     }
 });
 
-// Verifica o modo atual ao carregar a página
 if (document.body.classList.contains("dark-mode")) {
-    document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
-    document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
+    document.getElementById("sol").style.display = "none"; 
+    document.getElementById("lua").style.display = "block";
 } else {
-    document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
-    document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
+    document.getElementById("sol").style.display = "block";
+    document.getElementById("lua").style.display = "none"; 
 }
-
-
 
 </script>

@@ -40,7 +40,23 @@ class lancheController
         include 'C:\xampp\htdocs\grupo2\app\views\receitas\lista.php';
     }
 
-    // Final do Listar Rerceitas
+    // Final do Listar Receitas
+
+
+    // Exibir do catalogo
+    public function listarCatalogos()
+    {
+        return $this->lanchemodel->listarCatalogo();
+    }
+
+    public function exibirListaCatalogos()
+    {
+        $catalogos = $this->lanchemodel->listarCatalogo();
+        include 'C:\xampp\htdocs\grupo2\app\views\catalogo\lista.php';
+    }
+
+    // Final do Listar catalogo
+
 
 
     public function atualizarLanche($id_Lanche, $nome_lanche, $preco, $ingredientes, $img_lanche)

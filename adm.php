@@ -47,23 +47,23 @@
 
     <main>
         <section class="main-content">
+            
+                        <div>
+                            <button><a href="adm/adm_user.php">Administação de Usuários</a></button>
+                            <button><a href="adm/adm_lanche.php">Administação de Lanches</a></button>
+                            <button><a href="adm/adm_endereco.php">Administação de Endereços</a></button>
+                        </div>
+                        <!--Imagem 2 --->
+                        <button class="butao" id="toggleButton">Modo Noturno</button>
+                        <div>
 
-            <div>
-                <button><a href="adm\adm_user.php">Administação de Usuários</a></button>
-                <button><a href="adm/adm_lanche.php">Administação de Lanches</a></button>
-                <button><a href="adm/adm_endereco.php">Administação de Endereços</a></button>
-            </div>
-            <!--Imagem 2 --->
-            <button class="butao" id="toggleButton">Modo Noturno</button>
-            <div>
+                        </div>
+                    </section>
 
-            </div>
-        </section>
+    <div class="main-content">
 
-        <div class="main-content">
-
-        </div>
-
+    </div>
+    
     </main>
 
     <br><br><br>
@@ -95,7 +95,7 @@
 
 <!--Script para dark mode-->
 <script>
-    document.getElementById("toggleButton").addEventListener("click", function () {
+    document.getElementById("toggleButton").addEventListener("click", function() {
         document.body.classList.toggle("dark-mode");
         var sol = document.getElementById("sol");
         var lua = document.getElementById("lua");
@@ -105,17 +105,17 @@
             lua.style.display = "block";
         } else {
             document.getElementById("toggleButton").textContent = "Modo Noturno";
-            sol.style.display = "block";
-            lua.style.display = "none";
+            sol.style.display = "block"; 
+            lua.style.display = "none"; 
         }
     });
 
-
+ 
     if (document.body.classList.contains("dark-mode")) {
-        document.getElementById("sol").style.display = "none";
+        document.getElementById("sol").style.display = "none"; 
         document.getElementById("lua").style.display = "block";
     } else {
         document.getElementById("sol").style.display = "block";
-        document.getElementById("lua").style.display = "none";
+        document.getElementById("lua").style.display = "none"; 
     }
 </script>
