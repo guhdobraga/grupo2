@@ -1,0 +1,116 @@
+.dark-mode {
+    background-color: #282828; 
+    color: #fefefe; 
+}
+butao {
+    position: absolute;
+    left: 91%;
+    padding: 10px 20px;
+    background-color: #4E437B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    top: 15px;
+  }
+  
+  .butao:hover {
+    background-color: #b7c978;
+    transition: 0.25s;
+  }
+  
+  #toggleButton {
+
+    border-radius: 12px;
+    position:fixed
+    /* Estilos específicos para o botão com o identificador toggleButton */
+  }
+  
+  /* Estilos para o modo noturno */
+  .modo-noturno .butao {
+    background-color: #343a40;
+  }
+  
+  .modo-noturno .butao:hover {
+    background-color:#1d2124;
+    transition: 0.25s;
+}
+
+/*carrinho*/
+.confirm-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #5d7e62;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .main-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+  }
+
+  .container {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #a9a9a9;
+    border-radius: 5px;
+    background-color: #d2d2d2;
+    width: 70vw;
+    margin-top: 50px;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column; /* Os itens estarão dispostos em colunas dentro do contêiner principal */
+    align-items: center; /* Alinha os itens ao centro horizontalmente */
+    
+    
+}
+
+.item {
+    margin-bottom: 15px; /* Espaçamento entre os contêineres de itens */
+    width: 100%; /* Cada contêiner de item ocupará toda a largura do contêiner principal */
+}
+
+.item-content {
+    /* Estilos adicionais para cada contêiner de item */
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 0 auto; /* Centraliza horizontalmente cada contêiner de item */
+    margin-bottom: 1px;
+    background-color: #a9a9a9;
+    height: 50px;
+}
+
+.finish-button {
+    background-color: #5d7e62;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px;
+}
+
+h1 {
+    color:#eb6427;
+}
+
+.car {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.last-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
