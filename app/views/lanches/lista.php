@@ -25,7 +25,7 @@
                             <td><?php echo $lanche['nome_lanche']; ?></td>
                             <td><?php echo $lanche['preco']; ?></td>
                             <td><?php echo $lanche['ingredientes']; ?></td>
-                            <td><?php echo $lanche['img_lanche']; ?></td>
+                           <td><img src="<?= "../../grupo2/app/public/upload/".$lanche['img_lanche']; ?>" alt="imagem lanche" width="100px"></td>
                         </tr>
                 <?php endforeach; ?>
                 </tbody>
