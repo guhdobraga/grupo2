@@ -38,6 +38,12 @@ class pedLancheController
         $pedidos = $this->pedlanchemodel->listarLanchesPedidos($id_pedido);
         include 'C:\xampp\htdocs\grupo2\app\views\pedidos\lista.php';
     }
+    
+    public function exibirListatodospedidos()
+    {
+        $pedidos = $this->pedlanchemodel->listartodosLanchesPedidos();
+        include 'C:\xampp\htdocs\grupo2\app\views\pedidos\lista.php';
+    }
 
     public function listarHistorico() {
         return $this->pedlanchemodel->listarHistorico();
