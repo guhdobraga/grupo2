@@ -16,7 +16,7 @@ h1 {
     background-color: #282828; 
     color: #fefefe; 
 }
-butao {
+.butao {
     position: absolute;
     left: 91%;
     padding: 10px 20px;
@@ -49,4 +49,24 @@ butao {
   .modo-noturno .butao:hover {
     background-color:#1d2124;
     transition: 0.25s;
+}
+
+.btn {
+  background-color: #4CAF50; 
+  border: none; 
+  color: white; 
+  padding: 10px 22px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 4px 2px; 
+  transition-duration: 0.4s; 
+  cursor: pointer; 
+  border-radius: 20px; 
+}
+
+.btn:hover {
+  background-color: #45a049; 
+  color: white; 
 }

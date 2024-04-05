@@ -43,7 +43,8 @@
     
     <div class="products">
         <img src="img/logo.png">
-    </div>
+        <a href="#" class="btn">COMPRAR</a>
+         </div>
     <div class="products">
         <img src="img/logo.png">
     </div>
