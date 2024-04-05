@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pedir'])) {
 </section>
 <!--Header --->
 
-<section class="main-products">
 <h1>Lanches</h1>
+<section class="main-products">
  
     <?php
     $lancheController->exibirListaCatalogos();
