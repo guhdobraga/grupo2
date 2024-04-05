@@ -10,17 +10,15 @@
 <body>
     <section class="">
 
-
-        <?php foreach ($catalogos as $catalogo) : ?>
+<?php
+    foreach ($catalogos as $catalogo) : ?>
             <div>
                 <div class="products">
-                    <?php
-                    if (!empty($catalogo['img_lanche'])) {
-                        echo '<img src="' . $catalogo['img_lanche'] . '" alt="Imagem do Lanche" width="100">';
-                    } else {
-                        echo 'Sem Imagem';
-                    }
-                    ?>
+                    <?php if (!empty($catalogo['img_lanche'])) : ?>
+                        <img src="<?= "../../grupo2/app/public/upload/".$catalogo['img_lanche']; ?>" alt="imagem lanche" width="100px">
+                    <?php else : ?>
+                        Sem Imagem
+                    <?php endif; ?>
                     <?php echo $catalogo['nome_lanche']; ?><br>
                     <strong> R$<?php echo $catalogo['preco']; ?></strong>
                     <form method="post" action="carrinho.php">
@@ -31,7 +29,6 @@
                 </div>
             </div>
         <?php endforeach; ?>
-
     </section>
 </body>
 
