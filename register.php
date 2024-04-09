@@ -5,11 +5,18 @@ require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerusuarios.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se é uma submissão de formulário para adicionar um novo usuário
     if (isset($_POST['nome_completo']) && isset($_POST['nome_usuario']) && isset($_POST['cpf']) && isset($_POST['email']) && isset($_POST['senha']) && isset($_FILES['foto_perfil'])) {
-        $foto_perfil = "./app/public/upload/" . $_FILES['foto_perfil']['name'];
-        move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $foto_perfil);
+        $foto_perfil = "./app/public/upload/";
+        
+        $nome_arquivo = uniqid() . '_' . $_FILES['foto_perfil']['name'];
+
+        // Caminho completo para o arquivo de destino
+        $caminho_arquivo = $foto_perfil . $nome_arquivo;
+
+        // Move o arquivo temporário para o destino final
+        move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminho_arquivo);
 
         $userController = new userController($pdo);
-        $userController->criarUser($_POST['nome_completo'], $_POST['nome_usuario'], $_POST['cpf'], $_POST['email'], $_POST['senha'], 0, $foto_perfil);
+        $userController->criarUser($_POST['nome_completo'], $_POST['nome_usuario'], $_POST['cpf'], $_POST['email'], $_POST['senha'], 0, $nome_arquivo);
     }
 }
 ?>
@@ -32,36 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nome_completo = $_POST['nome_completo'];
-        $nome_usuario = $_POST['nome_usuario'];
-        $cpf = $_POST['cpf'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $confirm_password = $_POST['c-senha'];
-        $foto_perfil = $_FILES['foto_perfil']['name'];
-
-        if ($senha !== $confirm_password) {
-            echo "As senhas não coincidem. Por favor, tente novamente.";
-        } else {
-            try {
-                $foto_destino = "./uploads/" . $foto_perfil;
-                move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $foto_destino);
-
-                // Inserir usuário no banco de dados
-                $sql = "INSERT INTO users (nome_completo, nome_usuario, cpf, email, senha, foto_perfil) VALUES (?, ?, ?, ?, ?, ?)";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$nome_completo, $nome_usuario, $cpf, $email, $senha, $foto_destino]);
-
-                echo '<h1> Usuário cadastrado com sucesso! </h1>';
-            } catch (PDOException $e) {
-                echo "Erro ao cadastrar o usuário: " . $e->getMessage();
-            }
-        }
-    }
-    ?>
-
 
     <div class="container">
         <form class="login-form" action="register.php" method="post" enctype="multipart/form-data">

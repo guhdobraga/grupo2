@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,7 +35,11 @@
             <a href="carrinho.php"><img src="img/carrinho-de-compras.png"></a>
             </div>
             <div class="user-icon">
-            <a href="login.php"><img src="img/user-ico.png"></a>
+            <a href="login.php"><?php if(isset($_SESSION['foto_perfil'])) {
+               echo "<img src='./app/public/upload/".$_SESSION["foto_perfil"]."'></a>"; 
+            } else {
+                echo "<img src='img/user-ico.png'></a>";
+            }?>
             </div>
         </div>
 </section>

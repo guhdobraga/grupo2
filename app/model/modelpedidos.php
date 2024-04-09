@@ -9,15 +9,16 @@ class pedlancheModel
         $this->pdo = $pdo;
     }
 
-    public function pedLanche($id_lanche, $nome_lanche, $nome_completo)
+    public function pedLanche($itens_pedido, $valor_pedido, $id_user, $id_endereco)
     {
-        $consultaLanche = $this->pdo->prepare("SELECT quantidade FROM pedidos WHERE id_lanche = ?");
-        $consultaLanche->execute([$id_lanche]);
-        $lanche = $consultaLanche->fetch(PDO::FETCH_ASSOC);
+        date_default_timezone_set('America/Sao_Paulo');
+        $dataEhoraAtual = date("Y-m-d H:i:s");
 
-        $inserirPedido = $this->pdo->prepare("INSERT INTO pedidos (id_lanche, nome_lanche, nome_completo, data) VALUES (?, ?, ?, NOW())");
-        $inserirPedido->execute([$id_lanche, $nome_lanche, $nome_completo]);
+        $inserirPedido = $this->pdo->prepare("INSERT INTO pedidos (itens_pedido, valor_pedido, id_user, id_endereco, data) VALUES (?, ?, ?, ?, ?)");
+        $inserirPedido->execute([$itens_pedido, $valor_pedido, $id_user, $id_endereco, $dataEhoraAtual]);
 
+        unset($_SESSION['carrinho']);
+        $_SESSION['carrinho'] = array();
         return true;
     }
 
@@ -50,10 +51,15 @@ class pedlancheModel
     }
 
 
-    public function listarLanchesPedidos($nome_completo)
+    public function listarLanchesPedidos($id_user)
+    
     {
-        $consultaLanchesPedidos = $this->pdo->prepare("SELECT * FROM pedidos WHERE nome_completo = ?");
-        $consultaLanchesPedidos->execute([$nome_completo]);
+        $consultaLanchesPedidos = $this->pdo->prepare("SELECT p.*, c.nome_cidade, e.*, u.* FROM pedidos p
+        INNER JOIN endereco e ON p.id_endereco = e.id_endereco
+        INNER JOIN cidade c ON e.id_cidade = c.id_cidade
+        INNER JOIN users u ON p.id_user = u.id_user
+        WHERE p.id_user = ?");
+        $consultaLanchesPedidos->execute([$id_user]);
 
         return $consultaLanchesPedidos->fetchAll(PDO::FETCH_ASSOC);
     }

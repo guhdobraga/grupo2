@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'C:\xampp\htdocs\grupo2\db\db.php';
 require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php';
 
@@ -47,10 +48,19 @@ $lanches = $lancheController->listarLanches();
         </div>
         <div class="dir">
             <div class="shop-icon">
-            <a href="carrinho.php"><img src="img/carrinho-de-compras.png"></a>
+            <?php $qtd_carrinho = 0;
+                foreach ($_SESSION['carrinho'] as $qtd) {
+                    $qtd_carrinho += $qtd['quantidade'];
+                }; ?>
+                <a href="carrinho.php"><?php echo $qtd_carrinho; ?>
+                <img src="img/carrinho-de-compras.png"></a>
             </div>
             <div class="user-icon">
-            <a href="login.php"><img src="img/user-ico.png"></a>
+            <a href="login.php"><?php if(isset($_SESSION['foto_perfil'])) {
+               echo "<img src='./app/public/upload/".$_SESSION["foto_perfil"]."'></a>"; 
+            } else {
+                echo "<img src='img/user-ico.png'></a>";
+            }?>
             </div>
         </div>
 </section>
