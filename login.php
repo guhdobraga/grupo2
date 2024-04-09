@@ -19,24 +19,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $sql_code->fetch(PDO::FETCH_ASSOC);
 
 
-        $sql_code2 = $pdo->prepare("SELECT * FROM endereco WHERE id_user = ?");
+        /*$sql_code2 = $pdo->prepare("SELECT * FROM endereco WHERE id_user = ?");
         $sql_code2->execute([$user['id_user']]);
 
-        $user2 = $sql_code->fetch(PDO::FETCH_ASSOC);
+        $user2 = $sql_code->fetch(PDO::FETCH_ASSOC);*/
 
 
         if ($user) {
             if ($senha == $user['senha']) { // Comparação direta da senha
                 $_SESSION['id_user'] = $user['id_user'];
                 $_SESSION['nome_completo'] = $user['nome_completo'];
+                $_SESSION['foto_perfil'] = $user['foto_perfil'];
                 $_SESSION['adm'] = $user['adm'];
-
-
-
-                $_SESSION['cidade'] = $user2['cidade'];
-                $_SESSION['bairro'] = $user2['bairro'];
-                $_SESSION['rua'] = $user2['rua'];
-                $_SESSION['numero'] = $user2['numero'];
 
                 $alvl = $user['adm'];
 

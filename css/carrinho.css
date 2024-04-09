@@ -81,7 +81,7 @@ butao {
     /* Estilos adicionais para cada contêiner de item */
     display: flex;
     justify-content: space-between;
-    width: 1000px;
+    width: 100%;
     margin: 0 auto; /* Centraliza horizontalmente cada contêiner de item */
     margin-bottom: 1px;
     background-color: #a9a9a9;

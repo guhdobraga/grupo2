@@ -9,13 +9,27 @@ class pedLancheController
         $this->pedlanchemodel = new pedlancheModel($pdo);
     }
 
-    public function pedLanche($id_lanche, $nome_lanche, $nome_completo)
+    public function pedLanche($id_user, $carrinho, $id_endereco)
     {
-        if ($this->pedlanchemodel->pedLanche($id_lanche, $nome_lanche, $nome_completo)) {
-            header('Location: lanche.php');
+        $itens_pedido = '';
+        $valor_pedido = 0;
+
+        for($i=0; $i<count($carrinho); $i++){
+            if($i == 0) {
+                $itens_pedido .= $carrinho[$i]['nome_lanche'];
+                $valor_pedido = $valor_pedido + ($carrinho[$i]['quantidade'] * $carrinho[$i]['preco']);
+                
+            } else {
+                $itens_pedido .= ",".$carrinho[$i]['nome_lanche'];
+                $valor_pedido = $valor_pedido + ($carrinho[$i]['quantidade'] * $carrinho[$i]['preco']);
+            }
+        }
+
+        if ($this->pedlanchemodel->pedLanche($itens_pedido, $valor_pedido, $id_user, $id_endereco)) {
+            header('Location: pedidos.php');
             exit();
         } else {
-            echo 'Não foi possível realizar o pedido.';
+            echo 'Erro ao realizar o pedido.';
         }
     }
 

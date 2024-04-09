@@ -10,10 +10,11 @@
                 <thead>
                     <tr>
                         <th>Id do endereço</th>				
-                        <th>Cidade</th>
-                        <th>Bairro</th>
-                        <th>Rua</th>
+                        <th>Tipo Logradouro</th>
+                        <th>Nome</th>
                         <th>Número</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
                        
                     </tr>
                 </thead>
@@ -21,10 +22,11 @@
                     <tbody>
                         <tr>
                             <td><?php echo $End['id_endereco']; ?></td>
-                            <td><?php echo $End['cidade']; ?></td>
-                            <td><?php echo $End['bairro']; ?></td>
-                            <td><?php echo $End['rua']; ?></td>
+                            <td><?php echo $End['tipo_logradouro']; ?></td>
+                            <td><?php echo $End['nome']; ?></td>
                             <td><?php echo $End['numero']; ?></td>
+                            <td><?php echo $End['bairro']; ?></td>
+                            <td><?php echo $End['nome_cidade']; ?></td>
                         </tr>
                 <?php endforeach; ?>
                 </tbody>

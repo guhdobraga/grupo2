@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once('C:\xampp\htdocs\grupo2\db\db.php');
 include_once('C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php');
 include_once('C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php');
@@ -62,54 +62,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
 </head>
 
 <body>
-<!--Header --->
-<section class="main-header">
+    <!--Header --->
+    <section class="main-header">
         <div class="esq">
             <div class="header-logo">
                 <a href="index.php"><img src="img/logo.png"></a>
             </div>
         </div>
         <div class="meio">
-           
-                <ul class="header-text">
-                    <li><a href="lanches.php">Lanches</a></li>
-                    <li><a href="receitas.php">Receitas</a></li>
-                    <li><a href="pedidos.php">Pedidos</a></li>
-                </ul>
-           
+
+            <ul class="header-text">
+                <li><a href="lanches.php">Lanches</a></li>
+                <li><a href="receitas.php">Receitas</a></li>
+                <li><a href="pedidos.php">Pedidos</a></li>
+            </ul>
+
         </div>
         <div class="dir">
             <div class="shop-icon">
-            <a href="carrinho.php"><img src="img/carrinho-de-compras.png"></a>
+                <?php $qtd_carrinho = 0;
+                foreach ($_SESSION['carrinho'] as $qtd) {
+                    $qtd_carrinho += $qtd['quantidade'];
+                }; ?>
+                <a href="carrinho.php"><?php echo $qtd_carrinho; ?>
+                    <img src="img/carrinho-de-compras.png"></a>
             </div>
             <div class="user-icon">
-            <a href="login.php"><img src="img/user-ico.png"></a>
+                <a href="login.php"><?php if (isset($_SESSION['foto_perfil'])) {
+                                        echo "<img src='./app/public/upload/" . $_SESSION["foto_perfil"] . "'></a>";
+                                    } else {
+                                        echo "<img src='img/user-ico.png'></a>";
+                                    } ?>
             </div>
         </div>
-</section>
-<!--Header --->
+    </section>
+    <!--Header --->
     <section>
         <h4>Pedidos</h4><br>
         <ul>
-        <?php session_start(); ?>
-            <?php $lanchesPedidos = $pedlancheController->listarLanchesPedidos($_SESSION['nome_completo']); ?>
-            <?php foreach ($lanchesPedidos as $pedido) : ?>
-                <?php if (isset($_SESSION['nome_completo']) && !empty($_SESSION['nome_completo'])) {
-    $nome_completo = $_SESSION['nome_completo'];
-} else {
-   
-    header("Location: login.php");
-    exit(); 
-}
-?>
-                <li>
-                    <?php echo "<strong>Id do lanche: </strong>" . $pedido['id_lanche']; ?> <br>
-                    <?php echo "<strong>Lanche: </strong>" . $pedido['nome_lanche']; ?> <br>
-                    <?php echo "<strong>Preço Unitário: </strong>" . $pedido['preco']; ?>
-                    <?php echo "<strong>Nome do Usuário: </strong>" . $pedido['nome_completo']; ?>
-                    <?php echo "<strong>Rua: </strong>" . $pedido['rua']; ?>
-                    <?php echo "<strong>Número: </strong>" . $pedido['numero']; ?>
-                    <?php echo "<strong>Quantidade: </strong>" . $pedido['quantidade']; ?>
+            <?php
+
+            if (isset($_SESSION['nome_completo']) && !empty($_SESSION['nome_completo'])) {
+                $id_user = $_SESSION['id_user'];
+            } else {
+
+                header("Location: login.php");
+                exit();
+            }
+            $lanchesPedidos = $pedlancheController->listarLanchesPedidos($id_user); ?>
+            <?php foreach ($lanchesPedidos as $pedido) :
+            ?>
+                <li style="width: 500px; padding: 20px; background-color:#7BC858; margin-bottom:10px;">
+                    <?php echo "<strong>Número do Pedido: </strong>" . $pedido['id_pedido']; ?> <br>
+                    <?php echo "<strong>Data do Pedido: </strong>" . date('d-m-Y H:i:s', strtotime($pedido['data'])); ?>
+                    <?php echo "<strong>Oque foi pedido: </strong>" . $pedido['itens_pedido']; ?> <br>
+                    <?php echo "<strong>Preço total: </strong>" . "R$:" . $pedido['valor_pedido']; ?>
+                    <?php echo "<strong>Quem pediu: </strong>" . $pedido['nome_completo']; ?>
+                    <?php echo "<strong>Endereço de entrega: </strong>" . $pedido['tipo_logradouro'] .' '. $pedido['nome'].' Nº '.$pedido['numero'].' '.$pedido['bairro'].' - '.$pedido['nome_cidade']; ?>
                     <form method="post" action="lanche.php">
                         <input type="hidden" name="id_lache" value="<?php echo $pedido['id_pedido']; ?>">
                         <button type="submit" name="cancelar">Cancelar Pedido</button><br><br>
@@ -129,45 +138,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
             </div>
         </div>
         <div class="meio">
-           
-                <h1 class="footer-text">
+
+            <h1 class="footer-text">
                 All rights reserved by Lunch Fit©
-                </h1>
-                <a href="politica.php" class="btn2">Política de Privacidade</a>
+            </h1>
+            <a href="politica.php" class="btn2">Política de Privacidade</a>
         </div>
-       
+
         </div>
-</section>
+    </section>
 </body>
 
 </html>
 
 
-    <!--Script para dark mode-->
-    <script>
-        document.getElementById("toggleButton").addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
-            var sol = document.getElementById("sol");
-            var lua = document.getElementById("lua");
-            if (document.body.classList.contains("dark-mode")) {
-                document.getElementById("toggleButton").textContent = "Modo Claro";
-                sol.style.display = "none"; // Oculta o sol no modo noturno
-                lua.style.display = "block"; // Mostra a lua no modo noturno
-            } else {
-                document.getElementById("toggleButton").textContent = "Modo Noturno";
-                sol.style.display = "block"; // Mostra o sol no modo claro
-                lua.style.display = "none"; // Oculta a lua no modo claro
-            }
-        });
-
-        // Verifica o modo atual ao carregar a página
+<!--Script para dark mode-->
+<script>
+    document.getElementById("toggleButton").addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+        var sol = document.getElementById("sol");
+        var lua = document.getElementById("lua");
         if (document.body.classList.contains("dark-mode")) {
-            document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
-            document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
+            document.getElementById("toggleButton").textContent = "Modo Claro";
+            sol.style.display = "none"; // Oculta o sol no modo noturno
+            lua.style.display = "block"; // Mostra a lua no modo noturno
         } else {
-            document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
-            document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
+            document.getElementById("toggleButton").textContent = "Modo Noturno";
+            sol.style.display = "block"; // Mostra o sol no modo claro
+            lua.style.display = "none"; // Oculta a lua no modo claro
         }
-    </script>
+    });
 
-    
+    // Verifica o modo atual ao carregar a página
+    if (document.body.classList.contains("dark-mode")) {
+        document.getElementById("sol").style.display = "none"; // Oculta o sol no modo noturno
+        document.getElementById("lua").style.display = "block"; // Mostra a lua no modo noturno
+    } else {
+        document.getElementById("sol").style.display = "block"; // Mostra o sol no modo claro
+        document.getElementById("lua").style.display = "none"; // Oculta a lua no modo claro
+    }
+</script>

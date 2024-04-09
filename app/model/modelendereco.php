@@ -9,12 +9,12 @@ class EnderecoModel
     }
 
     //Método para criar endereco
-    public function criarEnd($cidade, $bairro, $rua, $numero)
+    public function criarEnd($tipo_logradouro, $cidade, $bairro, $nome, $numero, $id_user)
     {
-        $sql = "INSERT INTO endereco (cidade, bairro, rua, numero)
-    VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO endereco (tipo_logradouro, id_cidade, bairro, nome, numero, id_user)
+    VALUES (?, ?, ?, ?, ?, ?) ";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$cidade, $bairro, $rua, $numero]);
+        $stmt->execute([$tipo_logradouro, $cidade, $bairro, $nome, $numero, $id_user]);
     }
 
     //Model para listar endereco
@@ -24,20 +24,33 @@ class EnderecoModel
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchALL(PDO::FETCH_ASSOC);
     }
+    
+    //Model para listar enderecos do usuario
+    public function listarEnderecosUsuario($id_user)
+    {
+        $sql = "SELECT e.*, c.nome_cidade, u.id_user 
+        FROM endereco e 
+        INNER JOIN cidade c ON e.id_cidade = c.id_cidade 
+        INNER JOIN users u ON e.id_user = u.id_user
+        WHERE e.id_user = $id_user";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchALL(PDO::FETCH_ASSOC);
+    }
 
     //Model para atualizar Endereco
     public function
     atualizarEnd(
-        $id_endereco,
+        $tipo_logradouro,
         $cidade,
         $bairro,
-        $rua,
-        $numero
+        $nome,
+        $numero,
+        $id_endereco
     ) {
-        $sql = "UPDATE endereco SET cidade = ?, bairro = ?, rua = ?, numero = ?
+        $sql = "UPDATE endereco SET tipo_logradouro = ?, id_cidade = ?, bairro = ?, nome = ?, numero = ?
     WHERE id_endereco = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$cidade, $bairro, $rua, $numero, $id_endereco]);
+        $stmt->execute([$tipo_logradouro, $cidade, $bairro, $nome, $numero, $id_endereco]);
     }
 
 
@@ -48,6 +61,15 @@ class EnderecoModel
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id_endereco]);
     }
+
+    //Model para listar Cidades
+    public function listarCidades()
+    {
+        $sql = "SELECT * FROM cidade";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchALL(PDO::FETCH_ASSOC);
+    }
+
 }
 
 
