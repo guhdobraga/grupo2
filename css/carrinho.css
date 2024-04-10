@@ -66,25 +66,25 @@ butao {
 
 .item-container {
     display: flex;
-    flex-direction: column; /* Os itens estarão dispostos em colunas dentro do contêiner principal */
-    align-items: center; /* Alinha os itens ao centro horizontalmente */
-    
+    flex-direction: column; 
+    align-items: center; 
+    background-color:#a8e4ff;
+    border-radius: 5px;
+    border: 1.5px solid;
     
 }
 
 .item {
-    margin-bottom: 15px; /* Espaçamento entre os contêineres de itens */
-    width: 100%; /* Cada contêiner de item ocupará toda a largura do contêiner principal */
+    margin:15px;
+    width: 100%; 
 }
 
 .item-content {
-    /* Estilos adicionais para cada contêiner de item */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 1000px;
-    margin: 0 auto; /* Centraliza horizontalmente cada contêiner de item */
-    margin-bottom: 1px;
-    background-color: #a9a9a9;
+    margin: 0 auto; 
+    margin: 1px;
     height: 50px;
 }
 

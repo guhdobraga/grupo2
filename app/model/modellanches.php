@@ -9,12 +9,12 @@ class LancheModel
     }
 
     //Método para criar lanche
-    public function criarLanche($nome_lanche, $preco, $ingredientes, $img_lanche)
+    public function criarLanche($nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche)
     {
-        $sql = "INSERT INTO lanches (nome_lanche, preco, ingredientes, img_lanche)
-    VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO lanches (nome_lanche, preco, ingredientes, quantidade, img_lanche)
+    VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$nome_lanche, $preco, $ingredientes, $img_lanche]);
+        $stmt->execute([$nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche]);
     }
 
     //Model para listar lanches
@@ -49,11 +49,11 @@ class LancheModel
     
 
    //Model para atualizar lanches
-public function atualizarLanche($id_lanche, $nome_lanche, $preco, $ingredientes, $img_lanche)
+public function atualizarLanche($id_lanche, $nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche)
 {
-    $sql = "UPDATE lanches SET nome_lanche = ?, preco = ?, ingredientes = ?, img_lanche = ? WHERE id_lanche = ?";
+    $sql = "UPDATE lanches SET nome_lanche = ?, preco = ?, ingredientes = ?, quantidade = ?, img_lanche = ? WHERE id_lanche = ?";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->execute([$nome_lanche, $preco, $ingredientes, $img_lanche, $id_lanche]);
+    $stmt->execute([$nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche, $id_lanche]);
 }
 
 

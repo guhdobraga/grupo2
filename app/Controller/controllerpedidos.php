@@ -9,10 +9,10 @@ class pedLancheController
         $this->pedlanchemodel = new pedlancheModel($pdo);
     }
 
-    public function pedLanche($id_lanche, $nome_lanche, $nome_completo)
+    public function pedLanche($id_lanche, $nome_lanche, $preco, $quantidade)
     {
-        if ($this->pedlanchemodel->pedLanche($id_lanche, $nome_lanche, $nome_completo)) {
-            header('Location: lanche.php');
+        if ($this->pedlanchemodel->pedLanche($id_lanche, $nome_lanche, $preco, $quantidade)) {
+            header('Location: lanches.php');
             exit();
         } else {
             echo 'Não foi possível realizar o pedido.';
@@ -22,12 +22,13 @@ class pedLancheController
     public function cancelarPedido($id_pedido)
     {
         if ($this->pedlanchemodel->cancelarPedido($id_pedido)) {
-            header('Location: lanche.php');
+            header('Location: lanches.php');
             exit();
         } else {
             echo "Lamentamos, mas não foi possível realizar o cancelamento do seu pedido :(";
         }
     }
+    
     public function listarLanchesPedidos($id_pedido)
     {
         return $this->pedlanchemodel->listarLanchesPedidos($id_pedido);

@@ -5,7 +5,7 @@ require_once 'C:\xampp\htdocs\grupo2\db\db.php';
 require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerlanches.php';
 require_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php';
 
-  //exibir Receitas
+  
   if (isset($_POST['exibir_lanche'])) {
     $lancheController = new LancheController($pdo);
     $lancheController->exibirListaLanches();
@@ -21,9 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pedir'])) {
     var_dump($_SESSION);
     $id_lanche = $_POST['id_lanche'];
     $nome_lanche = $_POST['nome_lanche'];
-    $nome_completo = $_SESSION['nome_completo'];
 
-    $pedLancheController->pedLanche($id_lanche, $nome_lanche, $nome_completo);
+
+    $pedLancheController->pedLanche($id_lanche, $nome_lanche, $preco, $quantidade );
 }
 
 

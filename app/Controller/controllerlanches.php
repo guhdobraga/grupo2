@@ -10,9 +10,9 @@ class lancheController
         $this->lanchemodel = new lancheModel($pdo);
     }
 
-    public function criarLanche($nome_lanche, $preco, $ingredientes, $img_lanche)
+    public function criarLanche($nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche)
     {
-        $this->lanchemodel->criarLanche($nome_lanche, $preco, $ingredientes, $img_lanche);
+        $this->lanchemodel->criarLanche($nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche);
     }
 
     public function listarLanches()
@@ -59,9 +59,9 @@ class lancheController
 
 
 
-    public function atualizarLanche($id_Lanche, $nome_lanche, $preco, $ingredientes, $img_lanche)
+    public function atualizarLanche($id_Lanche, $nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche)
     {
-        $this->lanchemodel->atualizarLanche($id_Lanche, $nome_lanche, $preco, $ingredientes, $img_lanche);
+        $this->lanchemodel->atualizarLanche($id_Lanche, $nome_lanche, $preco, $ingredientes, $quantidade, $img_lanche);
     }
 
 

@@ -11,34 +11,6 @@ $lancheController = new lancheController($pdo);
 $pedlancheController = new pedLancheController($pdo);
 
 
-
-/*
-$lanches = $lancheController->listarlanches();
-
-$booksPorgenero = [];
-foreach ($books as $book) {
-    $genero = $book['genero'];
-    if (!isset($booksPorgenero[$genero])) {
-        $booksPorgenero[$genero] = [];
-    }
-    $booksPorgenero[$genero][] = $book;
-}*/
-
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pedir'])) {
-    $id_lanche = $_POST['id_lanche'];
-    $nome_lanche = $_POST['nome_lanche'];
-    $preco = $_POST['preco'];
-    $nome_completo = $_SESSION['nome_completo'];
-    $rua = $_POST['rua'];
-    $numero = $_POST['numero'];
-    $quantidade = $_POST['quantidade'];
-
-
-    $pedlancheController->pedLanche($id_lanche, $nome_lanche, $preco, $nome_completo, $rua, $numero, $quantidade);
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
     $id_lanche = $_POST['id_lanche'];
 
@@ -89,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
 </section>
 <!--Header --->
     <section>
-        <h4>Pedidos</h4><br>
+        <h1>Pedidos</h1><br>
         <ul>
         <?php session_start(); ?>
             <?php $lanchesPedidos = $pedlancheController->listarLanchesPedidos($_SESSION['nome_completo']); ?>
@@ -105,14 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar'])) {
                 <li>
                     <?php echo "<strong>Id do lanche: </strong>" . $pedido['id_lanche']; ?> <br>
                     <?php echo "<strong>Lanche: </strong>" . $pedido['nome_lanche']; ?> <br>
-                    <?php echo "<strong>Preço Unitário: </strong>" . $pedido['preco']; ?>
+                    <?php echo "<strong>Preço Unitário: </strong>" . $pedido['preco']; ?> <br>
                     <?php echo "<strong>Nome do Usuário: </strong>" . $pedido['nome_completo']; ?>
-                    <?php echo "<strong>Rua: </strong>" . $pedido['rua']; ?>
-                    <?php echo "<strong>Número: </strong>" . $pedido['numero']; ?>
-                    <?php echo "<strong>Quantidade: </strong>" . $pedido['quantidade']; ?>
-                    <form method="post" action="lanche.php">
+                    <form method="post" action="lanches.php">
                         <input type="hidden" name="id_lache" value="<?php echo $pedido['id_pedido']; ?>">
-                        <button type="submit" name="cancelar">Cancelar Pedido</button><br><br>
+                   
                     </form>
                 </li>
             <?php endforeach; ?>

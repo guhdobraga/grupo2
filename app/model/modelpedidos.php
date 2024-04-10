@@ -9,14 +9,14 @@ class pedlancheModel
         $this->pdo = $pdo;
     }
 
-    public function pedLanche($id_lanche, $nome_lanche, $nome_completo)
+    public function pedLanche($id_lanche, $nome_lanche, $preco, $quantidade)
     {
         $consultaLanche = $this->pdo->prepare("SELECT quantidade FROM pedidos WHERE id_lanche = ?");
         $consultaLanche->execute([$id_lanche]);
         $lanche = $consultaLanche->fetch(PDO::FETCH_ASSOC);
 
-        $inserirPedido = $this->pdo->prepare("INSERT INTO pedidos (id_lanche, nome_lanche, nome_completo, data) VALUES (?, ?, ?, NOW())");
-        $inserirPedido->execute([$id_lanche, $nome_lanche, $nome_completo]);
+        $inserirPedido = $this->pdo->prepare("INSERT INTO pedidos (id_lanche, nome_lanche, preco, quantidade) VALUES (?, ?, ?, ?, ?)");
+        $inserirPedido->execute([$id_lanche, $nome_lanche, $preco, $quantidade]);
 
         return true;
     }
@@ -25,22 +25,18 @@ class pedlancheModel
 
     public function cancelarPedido($id_pedido)
     {
-        $consultaPedido = $this->pdo->prepare("SELECT id_lanche, nome_lanche, nome_completo FROM pedidos WHERE id_pedido = ?");
+        $consultaPedido = $this->pdo->prepare("SELECT id_lanche, nome_lanche, preco, quantidade FROM pedidos WHERE id_pedido = ?");
         $consultaPedido->execute([$id_pedido]);
         $pedido = $consultaPedido->fetch(PDO::FETCH_ASSOC);
 
         if ($pedido) {
             $id_lanche = $pedido['id_lanche'];
             $nome_lanche = $pedido['nome_lanche'];
-            $nome_completo = $pedido['nome_completo'];
+            $preco = $pedido['preco'];
+            $quantidade = $pedido['quantidade'];
     
-            
-            $consultaLanche = $this->pdo->prepare("SELECT quantidade FROM lanches WHERE id_lanche = ?");
-            $consultaLanche->execute([$id_lanche]);
-            $lanche = $consultaLanche->fetch(PDO::FETCH_ASSOC);
 
-
-            $this->registrarHistorico($id_pedido, $id_lanche, $nome_lanche, $nome_completo);
+            $this->registrarHistorico($id_pedido, $id_lanche, $nome_lanche, $preco, $quantidade);
 
             $excluirPedido = $this->pdo->prepare("DELETE FROM pedidos WHERE id_pedido = ?");
             $excluirPedido->execute([$id_pedido]);
@@ -66,10 +62,10 @@ class pedlancheModel
         return $consultaLanchesPedidos->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    private function registrarHistorico($id_pedido, $id_lanche, $nome_lanche, $nome_completo)
+    private function registrarHistorico($id_pedido, $id_lanche, $nome_lanche, $preco, $quantidade, )
     {
-        $inserirHistorico = $this->pdo->prepare("INSERT INTO historico (id_pedido, nome_lanche, nome_completo) VALUES (?, ?, ?)");
-        $inserirHistorico->execute([$id_pedido, $id_lanche, $nome_lanche, $nome_completo]);
+        $inserirHistorico = $this->pdo->prepare("INSERT INTO historico (id_pedido, nome_lanche, preco, quantidade) VALUES (?, ?, ?, ?, ?)");
+        $inserirHistorico->execute([$id_pedido, $id_lanche, $nome_lanche, $preco, $quantidade]);
         $dataRegistrada = $this->pdo->query("SELECT hora FROM historico WHERE id_pedido = $id_pedido")->fetchColumn();
     }
 

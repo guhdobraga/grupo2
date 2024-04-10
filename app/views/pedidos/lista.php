@@ -13,9 +13,10 @@ include_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php'
             <table border="1">
                 <thead>
                     <tr>
-                        <th>id do pedido</th>			
-                        <th>nome dos lanches</th>
-                        <th>preço</th>
+                        <th>ID do pedido</th>			
+                        <th>Nome dos lanches</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
                     </tr>
                 </thead>
                 <?php foreach ($pedidos as $pedido): ?>
@@ -24,6 +25,7 @@ include_once 'C:\xampp\htdocs\grupo2\app\Controller\controllerpedidos.php'
                             <td><?php echo $pedido['id_pedido']; ?></td>
                             <td><?php echo $pedido['nome_lanche']; ?></td>
                             <td><?php echo $pedido['preco']; ?></td>
+                            <td><?php echo $pedido['quantidade']; ?></td>
                         </tr>
                 <?php endforeach; ?>
                 </tbody>
