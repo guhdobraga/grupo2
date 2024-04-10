@@ -159,12 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remover_lanche'])) {
     echo "</form>";?>
         </div>
         <?php endforeach; ?>
-    </div>
-    </div>
-<?php else : ?>
-    <p>O carrinho está vazio.</p>
-<?php endif; ?>
-<?php
+ <?php
 
 
 $total = 0;
@@ -177,8 +172,14 @@ foreach ($_SESSION['carrinho'] as $item) {
     $total += $subtotal;
 }
 
-echo "Total do Carrinho: R$ " . floatval($total);
-?>
+echo "Total do Carrinho: R$ " . number_format($total, 2);
+
+?> 
+    </div>
+    </div>
+<?php else : ?>
+    <p>O carrinho está vazio.</p>
+<?php endif; ?>
 
 </section>
 

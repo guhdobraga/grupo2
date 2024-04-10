@@ -15,7 +15,7 @@ class pedlancheModel
         $consultaLanche->execute([$id_lanche]);
         $lanche = $consultaLanche->fetch(PDO::FETCH_ASSOC);
 
-        $inserirPedido = $this->pdo->prepare("INSERT INTO pedidos (id_lanche, nome_lanche, preco, quantidade) VALUES (?, ?, ?, ?, ?)");
+        $inserirPedido = $this->pdo->prepare("INSERT INTO pedidos (id_lanche, nome_lanche, preco, quantidade) VALUES (?, ?, ?, ?)");
         $inserirPedido->execute([$id_lanche, $nome_lanche, $preco, $quantidade]);
 
         return true;
